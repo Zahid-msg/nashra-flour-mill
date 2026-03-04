@@ -3,868 +3,1625 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nashra Flour Mill - Premium Quality Flours & Spices</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Nashra Flour Mill - Premium Quality Flours & Spices | Uppala, Kerala</title>
+    <meta name="description" content="Nashra Flour Mill - Premium quality flours, spices, and oils since 2005. Traditional milling techniques, 100% pure & natural products from Uppala, Kerala.">
+    <meta name="keywords" content="flour mill, spices, Kerala, Uppala, wheat flour, rice flour, turmeric, chilly powder, coconut oil">
+    <meta property="og:title" content="Nashra Flour Mill - Premium Quality Flours & Spices">
+    <meta property="og:description" content="Experience the authentic taste of freshly ground spices and flours since 2005.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        :root {
+            --brown: #3d2516;
+            --brown-light: #5c3d2e;
+            --gold: #c8956c;
+            --gold-light: #e6b17e;
+            --cream: #faf6f1;
+            --cream-dark: #f0e8de;
+            --white: #ffffff;
+            --text: #2d2d2d;
+            --text-light: #6b6b6b;
+            --text-muted: #999;
+            --shadow: 0 8px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+            --radius: 16px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #f7f7f7;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            line-height: 1.3;
+        }
+
+        /* Preloader */
+        .preloader {
+            position: fixed;
+            inset: 0;
+            background: var(--brown);
+            z-index: 10000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s, visibility 0.6s;
+        }
+
+        .preloader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold-light);
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+        }
+
+        .preloader-bar {
+            width: 200px;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .preloader-bar::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: var(--gold-light);
+            border-radius: 2px;
+            animation: preload 1.2s ease-in-out infinite;
+        }
+
+        @keyframes preload {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(350%); }
         }
 
         /* Navigation */
         .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #5c3d2e;
-            padding: 1rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(61, 37, 22, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 5%;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
         }
 
         .logo {
-            color: #fff;
-            font-size: 1.8rem;
-            font-weight: 700;
-            cursor: pointer;
             display: flex;
             align-items: center;
+            gap: 12px;
+            text-decoration: none;
         }
 
-        .logo img {
-            height: 40px;
-            margin-right: 10px;
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--brown);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .logo-text span {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-top: -2px;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
             align-items: center;
-        }
-
-        .nav-links li {
-            margin-left: 2rem;
+            gap: 8px;
         }
 
         .nav-links a {
-            color: #fff;
+            color: rgba(255,255,255,0.85);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            padding: 8px 18px;
+            border-radius: 50px;
+            transition: var(--transition);
+            letter-spacing: 0.3px;
         }
 
         .nav-links a:hover {
-            color: #e6b17e;
+            color: #fff;
+            background: rgba(255,255,255,0.1);
         }
 
         .nav-links .btn-contact {
-            background-color: #e6b17e;
-            color: #5c3d2e;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: background-color 0.3s ease;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown);
+            font-weight: 600;
+            padding: 10px 24px;
         }
 
         .nav-links .btn-contact:hover {
-            background-color: #d9a066;
-            color: #5c3d2e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 149, 108, 0.4);
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
         }
 
         .burger {
             display: none;
+            flex-direction: column;
+            gap: 5px;
             cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
         }
 
-        .burger div {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 5px;
-            transition: all 0.3s ease;
+        .burger span {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: var(--transition);
         }
 
-        /* Hero Section */
+        .burger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* Hero */
         .hero {
-            height: 80vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--brown);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
             background-size: cover;
             background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            opacity: 0.4;
+            transform: scale(1.1);
+            transition: transform 10s ease;
+        }
+
+        .hero:hover .hero-bg {
+            transform: scale(1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(61,37,22,0.6) 0%, rgba(61,37,22,0.8) 100%);
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            color: white;
+            max-width: 900px;
             padding: 0 20px;
-            margin-top: 70px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(230, 177, 126, 0.15);
+            border: 1px solid rgba(230, 177, 126, 0.3);
+            padding: 8px 20px;
+            border-radius: 50px;
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: heroFadeUp 0.8s 0.5s forwards;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            color: #fff;
+            margin-bottom: 24px;
             font-weight: 700;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 0.8s 0.7s forwards;
+        }
+
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--gold-light), #d4a574);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 700px;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 0.8s 0.9s forwards;
         }
 
-        .hero-btn {
-            display: inline-block;
-            background-color: #e6b17e;
-            color: #5c3d2e;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 1.1rem;
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: heroFadeUp 0.8s 1.1s forwards;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown);
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(200, 149, 108, 0.4);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
-            transition: background-color 0.3s ease;
+            transition: var(--transition);
+            border: 1.5px solid rgba(255,255,255,0.3);
         }
 
-        .hero-btn:hover {
-            background-color: #d9a066;
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-3px);
         }
 
-        /* Section Styling */
-        .section {
-            padding: 80px 5%;
+        @keyframes heroFadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .section-title {
+        .hero-scroll {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: heroFadeUp 0.8s 1.5s forwards;
+            opacity: 0;
+        }
+
+        .hero-scroll .mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .hero-scroll .mouse::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: var(--gold-light);
+            border-radius: 3px;
+            animation: scrollMouse 2s infinite;
+        }
+
+        @keyframes scrollMouse {
+            0%, 100% { opacity: 1; top: 6px; }
+            50% { opacity: 0; top: 18px; }
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 0 5%;
+            position: relative;
+            z-index: 3;
+        }
+
+        .stats-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--cream-dark);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-50%);
+        }
+
+        .stat-item {
+            background: var(--white);
+            padding: 35px 20px;
             text-align: center;
-            margin-bottom: 50px;
+            transition: var(--transition);
         }
 
-        .section-title h2 {
+        .stat-item:hover {
+            background: var(--cream);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #5c3d2e;
-            margin-bottom: 15px;
+            font-weight: 700;
+            color: var(--brown);
+            line-height: 1;
+            margin-bottom: 8px;
         }
 
-        .section-title p {
-            font-size: 1.1rem;
-            color: #777;
-            max-width: 700px;
+        .stat-number span {
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Base */
+        .section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--brown);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About */
+        .about {
+            background: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        /* About Section */
-        .about {
-            background-color: #fff;
+        .about-image-wrapper {
+            position: relative;
         }
 
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
+        .about-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: 20px;
+            bottom: 20px;
+            border: 2px solid var(--gold-light);
+            border-radius: var(--radius);
+            z-index: 0;
         }
 
-        .about-img {
-            flex: 1;
-            border-radius: 10px;
+        .about-image {
+            position: relative;
+            z-index: 1;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
         }
 
-        .about-img img {
+        .about-image img {
             width: 100%;
-            height: auto;
+            height: 450px;
+            object-fit: cover;
             display: block;
+            transition: transform 0.8s ease;
         }
 
-        .about-text {
-            flex: 1;
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-experience {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            z-index: 2;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown);
+            padding: 24px 30px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(200, 149, 108, 0.4);
+        }
+
+        .about-experience .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .about-experience .label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .about-text h3 {
             font-size: 1.8rem;
-            color: #5c3d2e;
+            color: var(--brown);
             margin-bottom: 20px;
         }
 
         .about-text p {
-            margin-bottom: 15px;
-            color: #555;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            font-size: 1.02rem;
         }
 
         .about-features {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
             margin-top: 30px;
         }
 
-        .feature {
-            flex: 1 0 50%;
+        .feature-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--cream);
+            border-radius: 12px;
+            transition: var(--transition);
         }
 
-        .feature i {
-            color: #e6b17e;
-            font-size: 1.5rem;
-            margin-right: 15px;
+        .feature-item:hover {
+            background: var(--cream-dark);
+            transform: translateX(5px);
         }
 
-        /* Products Section */
+        .feature-item i {
+            color: var(--gold);
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .feature-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--brown);
+        }
+
+        /* Products */
         .products {
-            background-color: #f9f5f0;
+            background: var(--cream);
         }
 
-        .product-categories {
+        .product-filters {
             display: flex;
             justify-content: center;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
 
-        .product-category {
-            padding: 10px 20px;
-            margin: 0 10px 10px 0;
-            background-color: #fff;
-            border: 1px solid #e6b17e;
-            border-radius: 30px;
-            color: #5c3d2e;
+        .filter-btn {
+            padding: 10px 24px;
+            background: var(--white);
+            border: 1.5px solid transparent;
+            border-radius: 50px;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition);
         }
 
-        .product-category.active, .product-category:hover {
-            background-color: #e6b17e;
-            color: #fff;
+        .filter-btn:hover {
+            border-color: var(--gold-light);
+            color: var(--brown);
+        }
+
+        .filter-btn.active {
+            background: var(--brown);
+            color: var(--white);
+            border-color: var(--brown);
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 28px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .product-card {
-            background-color: #fff;
-            border-radius: 10px;
+            background: var(--white);
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
 
         .product-img {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
+            position: relative;
         }
 
         .product-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
+            transition: transform 0.6s ease;
         }
 
         .product-card:hover .product-img img {
             transform: scale(1.1);
         }
 
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--brown);
+            color: var(--gold-light);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .product-info {
-            padding: 20px;
+            padding: 24px;
         }
 
         .product-info h3 {
-            font-size: 1.3rem;
-            color: #5c3d2e;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--brown);
+            margin-bottom: 8px;
         }
 
         .product-info p {
-            color: #777;
-            margin-bottom: 15px;
+            color: var(--text-light);
             font-size: 0.9rem;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .product-price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #5c3d2e;
-            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--brown);
         }
 
         .product-btn {
-            display: inline-block;
-            background-color: #e6b17e;
-            color: #fff;
-            padding: 8px 15px;
-            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown);
+            padding: 8px 18px;
+            border-radius: 50px;
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: background-color 0.3s ease;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
         }
 
         .product-btn:hover {
-            background-color: #d9a066;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(200, 149, 108, 0.35);
         }
 
-        /* Process Section */
+        /* Process */
         .process {
-            background-color: #fff;
+            background: var(--white);
         }
 
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 50px;
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
-        .process-step {
-            flex: 1;
-            min-width: 250px;
+        .process-card {
             text-align: center;
-            padding: 0 20px;
-            margin-bottom: 30px;
-        }
-
-        .step-icon {
-            width: 100px;
-            height: 100px;
-            background-color: #f9f5f0;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 20px;
-            color: #5c3d2e;
-            font-size: 2.5rem;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
             position: relative;
         }
 
-        .step-icon::after {
-            content: '';
+        .process-card:hover {
+            background: var(--cream);
+        }
+
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+            color: var(--gold);
+            transition: var(--transition);
+        }
+
+        .process-card:hover .process-icon {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            color: var(--brown);
+            transform: rotateY(180deg);
+        }
+
+        .process-step-num {
             position: absolute;
-            top: 50%;
-            right: -50%;
-            width: 100%;
-            height: 2px;
-            background-color: #e6b17e;
-            z-index: 0;
+            top: 20px;
+            right: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--cream-dark);
+            line-height: 1;
         }
 
-        .process-step:last-child .step-icon::after {
-            display: none;
+        .process-card h3 {
+            font-size: 1.2rem;
+            color: var(--brown);
+            margin-bottom: 12px;
         }
 
-        .process-step h3 {
-            font-size: 1.3rem;
-            color: #5c3d2e;
-            margin-bottom: 15px;
-        }
-
-        .process-step p {
-            color: #777;
+        .process-card p {
+            color: var(--text-light);
+            font-size: 0.92rem;
         }
 
         /* Testimonials */
         .testimonials {
-            background-color: #f9f5f0;
+            background: var(--brown);
+            position: relative;
+            overflow: hidden;
         }
 
-        .testimonial-slider {
+        .testimonials .section-tag {
+            color: var(--gold-light);
+        }
+
+        .testimonials .section-header h2 {
+            color: var(--white);
+        }
+
+        .testimonials .section-header p {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .testimonial-container {
             max-width: 800px;
             margin: 0 auto;
             position: relative;
+            min-height: 280px;
         }
 
-        .testimonial {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 20px;
-            display: none;
+        .testimonial-card {
+            position: absolute;
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 40px;
+            border-radius: var(--radius);
+            opacity: 0;
+            transform: translateX(60px);
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
         }
 
-        .testimonial.active {
-            display: block;
+        .testimonial-card.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: auto;
+        }
+
+        .testimonial-card.prev {
+            transform: translateX(-60px);
+            opacity: 0;
+        }
+
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--gold-light);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 10px;
+            font-family: 'Playfair Display', serif;
         }
 
         .testimonial-text {
             font-size: 1.1rem;
-            color: #555;
+            color: rgba(255,255,255,0.85);
             font-style: italic;
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .testimonial-text::before {
-            content: '\201C';
-            font-size: 4rem;
-            position: absolute;
-            left: -20px;
-            top: -20px;
-            color: #e6b17e;
-            opacity: 0.3;
+            line-height: 1.8;
+            margin-bottom: 24px;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
+            gap: 16px;
         }
 
-        .author-img {
-            width: 60px;
-            height: 60px;
+        .testimonial-author img {
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-        }
-
-        .author-img img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
+            border: 2px solid var(--gold-light);
         }
 
-        .author-info h4 {
-            font-size: 1.1rem;
-            color: #5c3d2e;
-            margin-bottom: 5px;
+        .author-name {
+            font-weight: 600;
+            color: var(--white);
+            font-size: 1rem;
         }
 
-        .author-info p {
-            color: #777;
-            font-size: 0.9rem;
+        .author-location {
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
         }
 
-        .slider-nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .slider-dot {
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: #ddd;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .slider-dot.active {
-            background-color: #e6b17e;
-        }
-
-        /* Contact Section */
-        .contact {
-            background-color: #fff;
-        }
-
-        .contact-container {
+        .testimonial-nav {
             display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
         }
 
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0;
+        }
+
+        .testimonial-dot.active {
+            background: var(--gold-light);
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Contact */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .contact-info h3 {
-            font-size: 1.8rem;
-            color: #5c3d2e;
-            margin-bottom: 20px;
+            font-size: 1.6rem;
+            color: var(--brown);
+            margin-bottom: 8px;
         }
 
-        .info-item {
+        .contact-info > p {
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .info-card {
             display: flex;
-            margin-bottom: 20px;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding: 20px;
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            background: var(--cream);
         }
 
         .info-icon {
-            width: 50px;
-            height: 50px;
-            background-color: #f9f5f0;
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
+            border-radius: 12px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin-right: 15px;
-            color: #5c3d2e;
-            font-size: 1.2rem;
-        }
-
-        .info-text h4 {
+            justify-content: center;
+            color: var(--gold);
             font-size: 1.1rem;
-            color: #5c3d2e;
-            margin-bottom: 5px;
+            flex-shrink: 0;
         }
 
-        .info-text p {
-            color: #777;
+        .info-card h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--brown);
+            margin-bottom: 4px;
         }
 
-        .business-hours {
-            margin-top: 30px;
+        .info-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
         }
 
-        .business-hours h4 {
-            font-size: 1.2rem;
-            color: #5c3d2e;
-            margin-bottom: 15px;
+        .info-card a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        .hours-list {
-            list-style: none;
+        .info-card a:hover {
+            color: var(--gold);
         }
 
-        .hours-list li {
+        .contact-social {
             display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            gap: 12px;
+            margin-top: 32px;
+            padding-left: 20px;
         }
 
-        .hours-list li:last-child {
-            border-bottom: none;
+        .contact-social a {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cream);
+            color: var(--brown);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.1rem;
         }
 
-        .day {
-            font-weight: 500;
-            color: #5c3d2e;
+        .contact-social a:hover {
+            background: var(--brown);
+            color: var(--gold-light);
+            transform: translateY(-3px);
         }
 
-        .closed {
-            color: #ff5252;
+        .contact-form-wrapper {
+            background: var(--cream);
+            padding: 40px;
+            border-radius: var(--radius);
         }
 
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
+        .contact-form-wrapper h3 {
+            font-size: 1.4rem;
+            color: var(--brown);
+            margin-bottom: 24px;
         }
 
-        .contact-form h3 {
-            font-size: 1.8rem;
-            color: #5c3d2e;
-            margin-bottom: 20px;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            color: #5c3d2e;
+            font-size: 0.85rem;
             font-weight: 500;
+            color: var(--brown);
+            margin-bottom: 6px;
         }
 
         .form-group input,
+        .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            padding: 12px 16px;
+            border: 1.5px solid var(--cream-dark);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            background: var(--white);
+            color: var(--text);
+            transition: var(--transition);
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(200, 149, 108, 0.15);
         }
 
         .form-group textarea {
-            height: 150px;
             resize: vertical;
+            min-height: 100px;
         }
 
-        .form-btn {
-            background-color: #5c3d2e;
-            color: #fff;
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b6b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            padding-right: 40px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--brown), var(--brown-light));
+            color: var(--white);
             border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
-        .form-btn:hover {
-            background-color: #4a3024;
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(61, 37, 22, 0.3);
         }
 
         /* Map */
-        .map {
-            height: 400px;
-            margin-top: 50px;
+        .map-section {
+            padding: 0 5% 100px;
+            background: var(--white);
         }
 
-        .map iframe {
+        .map-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .map-wrapper iframe {
             width: 100%;
-            height: 100%;
+            height: 400px;
+            border: none;
+            display: block;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .whatsapp-float .tooltip {
+            background: var(--white);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            transform: translateX(10px);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .whatsapp-float:hover .tooltip {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .whatsapp-btn {
+            width: 56px;
+            height: 56px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+            transition: var(--transition);
+            animation: whatsappPulse 2s infinite;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
+        }
+
+        /* Scroll to Top */
+        .scroll-top {
+            position: fixed;
+            bottom: 100px;
+            right: 38px;
+            width: 40px;
+            height: 40px;
+            background: var(--brown);
+            color: var(--gold-light);
             border: none;
             border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
         }
 
         /* Footer */
         footer {
-            background-color: #5c3d2e;
-            color: #fff;
-            padding: 50px 5% 20px;
+            background: var(--brown);
+            color: var(--white);
+            padding: 80px 5% 30px;
         }
 
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
         }
 
-        .footer-column h3 {
-            font-size: 1.2rem;
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            margin: 16px 0 24px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.08);
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--gold-light);
+            color: var(--brown);
+        }
+
+        .footer-col h4 {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--gold-light);
             margin-bottom: 20px;
-            color: #e6b17e;
         }
 
-        .footer-column p {
-            margin-bottom: 20px;
-            color: #ddd;
-        }
-
-        .footer-column ul {
+        .footer-col ul {
             list-style: none;
         }
 
-        .footer-column ul li {
+        .footer-col ul li {
             margin-bottom: 10px;
         }
 
-        .footer-column a {
-            color: #ddd;
+        .footer-col a {
+            color: rgba(255,255,255,0.6);
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            transition: color 0.3s;
         }
 
-        .footer-column a:hover {
-            color: #e6b17e;
+        .footer-col a:hover {
+            color: var(--gold-light);
         }
 
-        .social-links {
+        .footer-hours li {
             display: flex;
-            gap: 15px;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
         }
 
-        .social-links a {
-            color: #fff;
-            background-color: rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s ease;
+        .footer-hours li .day {
+            font-weight: 500;
+            color: rgba(255,255,255,0.8);
         }
 
-        .social-links a:hover {
-            background-color: #e6b17e;
-            color: #5c3d2e;
+        .footer-hours li .closed {
+            color: #ff6b6b;
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #ddd;
-        }
-
-        /* Scroll to Top Button */
-        .scroll-top-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #e6b17e;
-            color: #5c3d2e;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border: none;
-            font-size: 1.2rem;
-            z-index: 99;
-            transition: background-color 0.3s ease;
-        }
-
-        .scroll-top-btn:hover {
-            background-color: #d9a066;
-        }
-
-        .scroll-top-btn.show {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.08);
             display: flex;
-            animation: fadeIn 0.3s;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .footer-bottom p {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.85rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--gold-light);
         }
 
         /* Responsive */
-        @media screen and (max-width: 768px) {
+        @media (max-width: 1024px) {
+            .about-grid {
+                gap: 50px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
             .nav-links {
-                position: absolute;
-                right: 0;
-                height: 92vh;
-                top: 70px;
-                background-color: #5c3d2e;
-                display: flex;
+                position: fixed;
+                inset: 0;
+                background: rgba(61, 37, 22, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
-                align-items: center;
-                width: 50%;
+                justify-content: center;
+                gap: 16px;
                 transform: translateX(100%);
-                transition: transform 0.5s ease-in;
-                z-index: 999;
-                box-shadow: -5px 0 10px rgba(0,0,0,0.1);
+                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
             }
-            
-            .nav-links li {
-                opacity: 0;
-                margin: 1.5rem 0;
+
+            .nav-links.active {
+                transform: translateX(0);
             }
-            
+
+            .nav-links a {
+                font-size: 1.3rem;
+                padding: 12px 24px;
+            }
+
             .burger {
-                display: block;
-            }
-            
-            .nav-active {
-                transform: translateX(0%);
+                display: flex;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .about-content {
-                flex-direction: column;
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
             }
 
-            .process-step {
-                flex: 100%;
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
-            .step-icon::after {
-                display: none;
+            .about-image img {
+                height: 300px;
             }
 
-            .contact-container {
-                flex-direction: column;
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                text-align: center;
+            }
+
+            .testimonial-card {
+                padding: 28px;
+            }
+
+            .contact-form-wrapper {
+                padding: 28px;
             }
         }
 
-        @keyframes navLinkFade {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
             }
-            to {
-                opacity: 1;
-                transform: translateX(0);
+
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
+                transform: translateY(-30px);
             }
-        }
 
-        .toggle .line1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
+            .stat-item {
+                padding: 24px 12px;
+            }
 
-        .toggle .line2 {
-            opacity: 0;
-        }
+            .stat-number {
+                font-size: 2rem;
+            }
 
-        .toggle .line3 {
-            transform: rotate(45deg) translate(-5px, -6px);
+            .section {
+                padding: 70px 5%;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-logo">Nashra Flour Mill</div>
+        <div class="preloader-bar"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://i.ibb.co/Jt8JQx8/flour-mill-logo.png" alt="Nashra Flour Mill Logo">
-            Nashra Flour Mill
-        </div>
-        <ul class="nav-links">
-            <li><a href="#" class="active">Home</a></li>
-            <li><a href="#about">About Us</a></li>
+    <nav class="navbar" id="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon"><i class="fas fa-wheat-awn"></i></div>
+            <div class="logo-text">
+                Nashra
+                <span>Flour Mill</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
             <li><a href="#products">Products</a></li>
-            <li><a href="#process">Our Process</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
             <li><a href="#contact" class="btn-contact">Contact Us</a></li>
         </ul>
-        <div class="burger">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
+        <div class="burger" id="burger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
-        <h1>Premium Quality Flours & Spices</h1>
-        <p>We specialize in powdering Rice, Wheat, Chilly, Coriander, Turmeric and more. Experience the authentic taste and aroma of freshly ground spices.</p>
-        <a href="#products" class="hero-btn">Explore Our Products</a>
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-grain"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-star"></i>
+                Trusted Since 2005
+            </div>
+            <h1>Premium Quality<br><span class="accent">Flours & Spices</span></h1>
+            <p>From our traditional mill in Uppala, Kerala — freshly ground flours, aromatic spices, and pure oils crafted with 20 years of expertise.</p>
+            <div class="hero-btns">
+                <a href="#products" class="btn-primary">
+                    Explore Products <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn-outline">
+                    <i class="fas fa-phone"></i> Get in Touch
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="mouse"></div>
+            Scroll
+        </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="section-title">
-            <h2>About Nashra Flour Mill</h2>
-            <p>Serving the community with premium quality products since 2005</p>
-        </div>
-        
-        <div class="about-content">
-            <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Flour Mill">
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-inner reveal">
+            <div class="stat-item">
+                <div class="stat-number" data-target="20">0<span>+</span></div>
+                <div class="stat-label">Years Experience</div>
             </div>
-            <div class="about-text">
-                <h3>Our Story</h3>
-                <p>Nashra Flour Mill has been a trusted name in Uppala, Kerala for over 15 years. We take pride in our traditional milling techniques combined with modern technology to deliver the freshest and most aromatic flours and spices.</p>
-                <p>Our commitment to quality begins with carefully selecting the finest raw materials. We ensure that every product that leaves our mill meets the highest standards of purity and taste.</p>
-                
+            <div class="stat-item">
+                <div class="stat-number" data-target="14">0<span>+</span></div>
+                <div class="stat-label">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="5000">0<span>+</span></div>
+                <div class="stat-label">Happy Customers</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="100">0<span>%</span></div>
+                <div class="stat-label">Pure & Natural</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about">
+        <div class="section-header reveal">
+            <div class="section-tag">Our Story</div>
+            <h2>A Legacy of Quality & Tradition</h2>
+            <p>Serving the community with premium products milled with care and passion</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-image-wrapper reveal">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Nashra Flour Mill - Traditional Milling">
+                </div>
+                <div class="about-experience">
+                    <div class="number">20+</div>
+                    <div class="label">Years of Trust</div>
+                </div>
+            </div>
+            <div class="about-text reveal">
+                <h3>Crafted with Tradition,<br>Delivered with Care</h3>
+                <p>Nashra Flour Mill has been a trusted name in Uppala, Kerala for over two decades. We blend time-honored milling techniques with modern standards to deliver the freshest, most aromatic flours and spices to your kitchen.</p>
+                <p>Our commitment to quality begins with hand-selecting the finest raw materials from trusted suppliers. Every product that leaves our mill meets the highest standards of purity and taste.</p>
                 <div class="about-features">
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="feature-item">
+                        <i class="fas fa-leaf"></i>
                         <span>100% Pure & Natural</span>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-halved"></i>
                         <span>No Preservatives</span>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="feature-item">
+                        <i class="fas fa-mortar-pestle"></i>
                         <span>Traditional Milling</span>
                     </div>
-                    <div class="feature">
-                        <i class="fas fa-check-circle"></i>
+                    <div class="feature-item">
+                        <i class="fas fa-hand-sparkles"></i>
                         <span>Hygienic Processing</span>
                     </div>
                 </div>
@@ -872,406 +1629,451 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Products -->
     <section id="products" class="section products">
-        <div class="section-title">
-            <h2>Our Products</h2>
-            <p>Discover our range of premium quality flours and spices</p>
+        <div class="section-header reveal">
+            <div class="section-tag">Our Products</div>
+            <h2>Freshly Milled, Perfectly Packed</h2>
+            <p>Discover our premium range of flours, spices, oils, and pastes</p>
         </div>
-        
-        <div class="product-categories">
-            <div class="product-category active" data-category="all">All Products</div>
-            <div class="product-category" data-category="flours">Flours</div>
-            <div class="product-category" data-category="spices">Spices</div>
-            <div class="product-category" data-category="oils">Oils & Pastes</div>
+
+        <div class="product-filters reveal">
+            <button class="filter-btn active" data-category="all">All Products</button>
+            <button class="filter-btn" data-category="flours">Flours</button>
+            <button class="filter-btn" data-category="spices">Spices</button>
+            <button class="filter-btn" data-category="oils">Oils & Pastes</button>
         </div>
-        
+
         <div class="product-grid">
             <!-- Flours -->
-            <div class="product-card" data-type="flours">
+            <div class="product-card reveal" data-type="flours">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1c5a1ec21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Wheat Flour">
+                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1c5a1ec21?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wheat Flour" loading="lazy">
+                    <div class="product-badge">Flour</div>
                 </div>
                 <div class="product-info">
                     <h3>Wheat Flour</h3>
-                    <p>Finely milled wheat flour perfect for chapatis, rotis, and other baked goods.</p>
-                    <div class="product-price">₹40 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Finely milled wheat flour perfect for chapatis, rotis, and baked goods.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;40<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Wheat%20Flour" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="flours">
+
+            <div class="product-card reveal" data-type="flours">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rice Flour">
+                    <img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rice Flour" loading="lazy">
+                    <div class="product-badge">Flour</div>
                 </div>
                 <div class="product-info">
                     <h3>Rice Flour</h3>
-                    <p>Smooth and fine rice flour ideal for making idlis, dosas, and traditional sweets.</p>
-                    <div class="product-price">₹45 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Smooth and fine rice flour ideal for idlis, dosas, and traditional sweets.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;45<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Rice%20Flour" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="flours">
+
+            <div class="product-card reveal" data-type="flours">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1612197527762-8cfb55b7d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Puttu Flour">
+                    <img src="https://images.unsplash.com/photo-1612197527762-8cfb55b7d307?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Puttu Flour" loading="lazy">
+                    <div class="product-badge">Flour</div>
                 </div>
                 <div class="product-info">
                     <h3>Puttu Flour</h3>
-                    <p>Special blend for making soft and fluffy puttu, a traditional Kerala breakfast.</p>
-                    <div class="product-price">₹50 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Special blend for soft, fluffy puttu — a traditional Kerala breakfast staple.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;50<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Puttu%20Flour" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
+
             <!-- Spices -->
-            <div class="product-card" data-type="spices">
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kashmiri Chilly Powder">
+                    <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kashmiri Chilly Powder" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Kashmiri Chilly Powder</h3>
-                    <p>Vibrant red chilly powder that adds color and mild heat to your dishes.</p>
-                    <div class="product-price">₹180 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Vibrant red powder that adds beautiful color and mild heat to dishes.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;180<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Kashmiri%20Chilly%20Powder" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Spicy Chilly Powder">
+                    <img src="https://images.unsplash.com/photo-1532336414038-cf19250c5757?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Spicy Chilly Powder" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Spicy Chilly Powder</h3>
-                    <p>Hot and aromatic chilly powder to add a fiery kick to your curries and dishes.</p>
-                    <div class="product-price">₹160 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Hot and aromatic chilly powder for a fiery kick in curries and dishes.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;160<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Spicy%20Chilly%20Powder" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Turmeric Powder">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Turmeric Powder" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Turmeric Powder</h3>
-                    <p>Bright yellow turmeric powder with earthy flavor and numerous health benefits.</p>
-                    <div class="product-price">₹200 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Bright golden turmeric with earthy flavor and powerful health benefits.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;200<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Turmeric%20Powder" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1599789197514-47270cd526b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coriander Powder">
+                    <img src="https://images.unsplash.com/photo-1599789197514-47270cd526b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coriander Powder" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Coriander Powder</h3>
-                    <p>Aromatic coriander powder that adds a warm, nutty flavor to your dishes.</p>
-                    <div class="product-price">₹140 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Aromatic coriander that adds a warm, nutty flavor to your dishes.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;140<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Coriander%20Powder" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1596046416768-257c5de2cf2f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jeera Powder">
+                    <img src="https://images.unsplash.com/photo-1596046416768-257c5de2cf2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Jeera (Cumin) Powder" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Jeera Powder</h3>
-                    <p>Freshly ground cumin powder with an intense, warm aroma for your recipes.</p>
-                    <div class="product-price">₹220 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Freshly ground cumin with an intense, warm aroma for your recipes.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;220<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Jeera%20Powder" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1599789197780-9a32a80c6816?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pepper Powder">
+                    <img src="https://images.unsplash.com/photo-1599789197780-9a32a80c6816?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pepper Powder" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Pepper Powder</h3>
                     <p>Pungent black pepper powder that adds a spicy kick to any dish.</p>
-                    <div class="product-price">₹280 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;280<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Pepper%20Powder" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1599789198489-e88cf4228b96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Badi Saunf">
+                    <img src="https://images.unsplash.com/photo-1599789198489-e88cf4228b96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Badi Saunf (Fennel)" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Badi Saunf</h3>
                     <p>Premium quality fennel seeds with a sweet, anise-like flavor.</p>
-                    <div class="product-price">₹190 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;190<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Badi%20Saunf" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="spices">
+
+            <div class="product-card reveal" data-type="spices">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1596046503918-2c7ce4c65169?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Garam Masala">
+                    <img src="https://images.unsplash.com/photo-1596046503918-2c7ce4c65169?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Garam Masala" loading="lazy">
+                    <div class="product-badge">Spice</div>
                 </div>
                 <div class="product-info">
                     <h3>Garam Masala</h3>
-                    <p>A blend of ground spices used in Indian cuisine to add warmth and depth.</p>
-                    <div class="product-price">₹250 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>A rich blend of ground spices to add warmth and depth to Indian cuisine.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;250<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Garam%20Masala" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
+
             <!-- Oils & Pastes -->
-            <div class="product-card" data-type="oils">
+            <div class="product-card reveal" data-type="oils">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coconut Oil">
+                    <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coconut Oil" loading="lazy">
+                    <div class="product-badge">Oil</div>
                 </div>
                 <div class="product-info">
                     <h3>Coconut Oil</h3>
-                    <p>Pure, cold-pressed coconut oil with a rich aroma and numerous health benefits.</p>
-                    <div class="product-price">₹180 / liter</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Pure, cold-pressed coconut oil with a rich aroma and health benefits.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;180<small>/ltr</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Coconut%20Oil" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
-            
-            <div class="product-card" data-type="oils">
+
+            <div class="product-card reveal" data-type="oils">
                 <div class="product-img">
-                    <img src="https://images.unsplash.com/photo-1589881133595-a3c085cb731d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Coconut Paste">
+                    <img src="https://images.unsplash.com/photo-1589881133595-a3c085cb731d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Coconut Paste" loading="lazy">
+                    <div class="product-badge">Paste</div>
                 </div>
                 <div class="product-info">
                     <h3>Coconut Paste</h3>
-                    <p>Smooth and creamy coconut paste perfect for curries and traditional dishes.</p>
-                    <div class="product-price">₹120 / kg</div>
-                    <a href="#contact" class="product-btn">Order Now</a>
+                    <p>Smooth, creamy coconut paste perfect for curries and traditional dishes.</p>
+                    <div class="product-footer">
+                        <div class="product-price">&#8377;120<small>/kg</small></div>
+                        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20order%20Coconut%20Paste" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
+    <!-- Process -->
     <section id="process" class="section process">
-        <div class="section-title">
-            <h2>Our Milling Process</h2>
-            <p>How we ensure the highest quality in every product</p>
+        <div class="section-header reveal">
+            <div class="section-tag">Our Process</div>
+            <h2>From Source to Your Kitchen</h2>
+            <p>Every step is carefully executed to deliver unmatched quality</p>
         </div>
-        
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-icon">
-                    <i class="fas fa-seedling"></i>
-                </div>
+        <div class="process-grid">
+            <div class="process-card reveal">
+                <div class="process-step-num">01</div>
+                <div class="process-icon"><i class="fas fa-seedling"></i></div>
                 <h3>Selection</h3>
-                <p>We carefully select the finest raw materials from trusted suppliers to ensure premium quality.</p>
+                <p>We hand-select the finest raw materials from trusted local suppliers to ensure premium quality.</p>
             </div>
-            
-            <div class="process-step">
-                <div class="step-icon">
-                    <i class="fas fa-broom"></i>
-                </div>
+            <div class="process-card reveal">
+                <div class="process-step-num">02</div>
+                <div class="process-icon"><i class="fas fa-broom"></i></div>
                 <h3>Cleaning</h3>
-                <p>The raw materials undergo thorough cleaning to remove impurities and ensure purity.</p>
+                <p>Thorough multi-stage cleaning removes all impurities, guaranteeing purity in every batch.</p>
             </div>
-            
-            <div class="process-step">
-                <div class="step-icon">
-                    <i class="fas fa-sun"></i>
-                </div>
+            <div class="process-card reveal">
+                <div class="process-step-num">03</div>
+                <div class="process-icon"><i class="fas fa-sun"></i></div>
                 <h3>Drying</h3>
-                <p>Materials are dried to the optimal moisture content for perfect grinding and longer shelf life.</p>
+                <p>Materials are dried to optimal moisture for perfect grinding consistency and longer shelf life.</p>
             </div>
-            
-            <div class="process-step">
-                <div class="step-icon">
-                    <i class="fas fa-mortar-pestle"></i>
-                </div>
+            <div class="process-card reveal">
+                <div class="process-step-num">04</div>
+                <div class="process-icon"><i class="fas fa-mortar-pestle"></i></div>
                 <h3>Grinding</h3>
-                <p>Using traditional techniques and modern equipment, we grind the materials to the perfect consistency.</p>
+                <p>Traditional techniques meet modern equipment to grind materials to the perfect texture.</p>
             </div>
-            
-            <div class="process-step">
-                <div class="step-icon">
-                    <i class="fas fa-microscope"></i>
-                </div>
+            <div class="process-card reveal">
+                <div class="process-step-num">05</div>
+                <div class="process-icon"><i class="fas fa-microscope"></i></div>
                 <h3>Quality Check</h3>
-                <p>Every batch undergoes strict quality checks to ensure it meets our high standards.</p>
+                <p>Every batch passes strict quality inspections to ensure it meets our exacting standards.</p>
             </div>
-            
-            <div class="process-step">
-                <div class="step-icon">
-                    <i class="fas fa-box"></i>
-                </div>
+            <div class="process-card reveal">
+                <div class="process-step-num">06</div>
+                <div class="process-icon"><i class="fas fa-box"></i></div>
                 <h3>Packaging</h3>
-                <p>Products are carefully packaged to preserve freshness, aroma, and flavor.</p>
+                <p>Carefully sealed packaging preserves freshness, aroma, and flavor until it reaches you.</p>
             </div>
         </div>
     </section>
 
     <!-- Testimonials -->
-    <section class="section testimonials">
-        <div class="section-title">
-            <h2>Customer Testimonials</h2>
-            <p>What our customers say about our products</p>
+    <section id="testimonials" class="section testimonials">
+        <div class="section-header reveal">
+            <div class="section-tag">Testimonials</div>
+            <h2>Loved by Our Customers</h2>
+            <p>Real stories from the families and businesses who trust us</p>
         </div>
-        
-        <div class="testimonial-slider">
-            <div class="testimonial active">
-                <p class="testimonial-text">"I've been buying spices from Nashra Flour Mill for over 5 years now. Their turmeric and chilly powders are the freshest and most aromatic I've ever used. My dishes have never tasted better!"</p>
+        <div class="testimonial-container reveal">
+            <div class="testimonial-card active">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p class="testimonial-text">I've been buying spices from Nashra Flour Mill for over 5 years now. Their turmeric and chilly powders are the freshest and most aromatic I've ever used. My dishes have never tasted better!</p>
                 <div class="testimonial-author">
-                    <div class="author-img">
-                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya Nair">
-                    </div>
-                    <div class="author-info">
-                        <h4>Priya Nair</h4>
-                        <p>Uppala, Kerala</p>
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya Nair">
+                    <div>
+                        <div class="author-name">Priya Nair</div>
+                        <div class="author-location">Uppala, Kerala</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="testimonial">
-                <p class="testimonial-text">"The wheat flour from Nashra makes the softest chapatis. I've tried many brands but nothing compares to the quality and taste of their products. Highly recommended for every kitchen!"</p>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p class="testimonial-text">The wheat flour from Nashra makes the softest chapatis. I've tried many brands but nothing compares to the quality and taste of their products. Highly recommended for every kitchen!</p>
                 <div class="testimonial-author">
-                    <div class="author-img">
-                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul Menon">
-                    </div>
-                    <div class="author-info">
-                        <h4>Rahul Menon</h4>
-                        <p>Kasaragod, Kerala</p>
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul Menon">
+                    <div>
+                        <div class="author-name">Rahul Menon</div>
+                        <div class="author-location">Kasaragod, Kerala</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="testimonial">
-                <p class="testimonial-text">"As a restaurant owner, quality of ingredients is paramount. Nashra Flour Mill has been our trusted supplier for years. Their consistent quality and timely delivery make them our first choice for all spice needs."</p>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">&ldquo;</div>
+                <p class="testimonial-text">As a restaurant owner, ingredient quality is paramount. Nashra Flour Mill has been our trusted supplier for years. Their consistent quality and timely delivery make them our first choice.</p>
                 <div class="testimonial-author">
-                    <div class="author-img">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fathima Beevi">
-                    </div>
-                    <div class="author-info">
-                        <h4>Fathima Beevi</h4>
-                        <p>Restaurant Owner, Mangalore</p>
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fathima Beevi">
+                    <div>
+                        <div class="author-name">Fathima Beevi</div>
+                        <div class="author-location">Restaurant Owner, Mangalore</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="slider-nav">
-                <span class="slider-dot active" data-slide="0"></span>
-                <span class="slider-dot" data-slide="1"></span>
-                <span class="slider-dot" data-slide="2"></span>
-            </div>
+        </div>
+        <div class="testimonial-nav reveal">
+            <button class="testimonial-dot active" data-slide="0"></button>
+            <button class="testimonial-dot" data-slide="1"></button>
+            <button class="testimonial-dot" data-slide="2"></button>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="section contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us for orders or inquiries</p>
+        <div class="section-header reveal">
+            <div class="section-tag">Get in Touch</div>
+            <h2>We'd Love to Hear From You</h2>
+            <p>Place an order or ask us anything — we're here to help</p>
         </div>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
+        <div class="contact-grid">
+            <div class="contact-info reveal">
+                <h3>Contact Information</h3>
+                <p>Reach out to us through any of these channels</p>
+
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-location-dot"></i></div>
                     <div>
-                        <h3>Address</h3>
-                        <p>Firdouse Nagar Maidan Road, Uppala, Kerala 671322, India</p>
+                        <h4>Visit Us</h4>
+                        <p>Firdouse Nagar Maidan Road,<br>Uppala, Kerala 671322, India</p>
                     </div>
                 </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-phone-alt"></i>
+
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-phone"></i></div>
                     <div>
-                        <h3>Phone</h3>
-                        <p>+91 96334 90083</p>
+                        <h4>Call Us</h4>
+                        <p><a href="tel:+919633490083">+91 96334 90083</a></p>
                     </div>
                 </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-envelope"></i>
+
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
                     <div>
-                        <h3>Email</h3>
-                        <p>info@nashraflourmill.com</p>
+                        <h4>Email Us</h4>
+                        <p><a href="mailto:info@nashraflourmill.com">info@nashraflourmill.com</a></p>
                     </div>
                 </div>
-                
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
+
+                <div class="info-card">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
                     <div>
-                        <h3>Business Hours</h3>
-                        <p>Monday - Saturday: 9 AM–6:15 PM</p>
-                        <p>Sunday: Closed</p>
+                        <h4>Business Hours</h4>
+                        <p>Mon - Sat: 9:00 AM &ndash; 6:15 PM<br>Sunday: Closed</p>
                     </div>
                 </div>
-                
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+
+                <div class="contact-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919633490083" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            
-            <div class="contact-form">
-                <h3>Send us a message</h3>
+
+            <div class="contact-form-wrapper reveal">
+                <h3>Send Us a Message</h3>
                 <form id="orderForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="product">Product</label>
+                            <select id="product" required>
+                                <option value="">Select a product</option>
+                                <option value="Wheat Flour">Wheat Flour</option>
+                                <option value="Rice Flour">Rice Flour</option>
+                                <option value="Puttu Flour">Puttu Flour</option>
+                                <option value="Kashmiri Chilly Powder">Kashmiri Chilly Powder</option>
+                                <option value="Spicy Chilly Powder">Spicy Chilly Powder</option>
+                                <option value="Turmeric Powder">Turmeric Powder</option>
+                                <option value="Coriander Powder">Coriander Powder</option>
+                                <option value="Jeera Powder">Jeera Powder</option>
+                                <option value="Pepper Powder">Pepper Powder</option>
+                                <option value="Badi Saunf">Badi Saunf</option>
+                                <option value="Garam Masala">Garam Masala</option>
+                                <option value="Coconut Oil">Coconut Oil</option>
+                                <option value="Coconut Paste">Coconut Paste</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity (kg/ltr)</label>
+                            <input type="number" id="quantity" placeholder="e.g. 5" min="1" required>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="tel" id="phone" placeholder="Your Phone" required>
+                        <label for="message">Message (Optional)</label>
+                        <textarea id="message" placeholder="Any special instructions or questions..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <select id="product" required>
-                            <option value="">Select Product</option>
-                            <option value="Wheat Flour">Wheat Flour</option>
-                            <option value="Rice Flour">Rice Flour</option>
-                            <option value="Kashmiri Chilly Powder">Kashmiri Chilly Powder</option>
-                            <option value="Spicy Chilly Powder">Spicy Chilly Powder</option>
-                            <option value="Coriander Powder">Coriander Powder</option>
-                            <option value="Turmeric Powder">Turmeric Powder</option>
-                            <option value="Jeera Powder">Jeera Powder</option>
-                            <option value="Coconut Oil">Coconut Oil</option>
-                            <option value="Coconut Paste">Coconut Paste</option>
-                            <option value="Pepper Powder">Pepper Powder</option>
-                            <option value="Badi Saunf">Badi Saunf</option>
-                            <option value="Garam Masala">Garam Masala</option>
-                            <option value="Puttu Flour">Puttu Flour</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <input type="number" id="quantity" placeholder="Quantity (in kg/liters)" min="1" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" placeholder="Your Message" rows="5"></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
                 </form>
             </div>
         </div>
-        
-        <div class="map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.5506171130473!2d75.0392!3d12.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA3JzI0LjAiTiA3NcKwMDInMjEuMSJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-        </div>
     </section>
+
+    <!-- Map -->
+    <div class="map-section">
+        <div class="map-wrapper reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.5506171130473!2d75.0392!3d12.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA3JzI0LjAiTiA3NcKwMDInMjEuMSJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Nashra Flour Mill</h3>
-                <p>Premium quality flours and spices made with traditional techniques and modern standards.</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo" style="margin-bottom: 8px;">
+                    <div class="logo-icon"><i class="fas fa-wheat-awn"></i></div>
+                    <div class="logo-text">
+                        Nashra
+                        <span>Flour Mill</span>
+                    </div>
+                </a>
+                <p>Premium quality flours, spices, and oils crafted with traditional techniques and modern standards since 2005.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919633490083" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            
-            <div class="footer-column">
-                <h3>Products</h3>
+            <div class="footer-col">
+                <h4>Products</h4>
                 <ul>
                     <li><a href="#products">Flours</a></li>
                     <li><a href="#products">Spices</a></li>
@@ -1279,103 +2081,129 @@
                     <li><a href="#products">All Products</a></li>
                 </ul>
             </div>
-            
-            <div class="footer-column">
-                <h3>Quick Links</h3>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#process">Our Process</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
                 </ul>
             </div>
-            
-            <div class="footer-column">
-                <h3>Business Hours</h3>
-                <ul class="hours">
-                    <li><span>Monday:</span> 9 AM–6:15 PM</li>
-                    <li><span>Tuesday:</span> 9 AM–6:15 PM</li>
-                    <li><span>Wednesday:</span> 9 AM–6:15 PM</li>
-                    <li><span>Thursday:</span> 9 AM–6:15 PM</li>
-                    <li><span>Friday:</span> 9 AM–6:15 PM</li>
-                    <li><span>Saturday:</span> 9 AM–6:15 PM</li>
-                    <li><span>Sunday:</span> Closed</li>
+            <div class="footer-col">
+                <h4>Business Hours</h4>
+                <ul class="footer-hours">
+                    <li><span class="day">Mon &ndash; Fri</span> 9 AM &ndash; 6:15 PM</li>
+                    <li><span class="day">Saturday</span> 9 AM &ndash; 6:15 PM</li>
+                    <li><span class="day">Sunday</span> <span class="closed">Closed</span></li>
                 </ul>
             </div>
         </div>
-        
         <div class="footer-bottom">
-            <p>&copy; 2023 Nashra Flour Mill. All rights reserved.</p>
+            <p>&copy; 2025 Nashra Flour Mill. All rights reserved.</p>
+            <a href="tel:+919633490083">+91 96334 90083</a>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button id="scrollToTop" class="scroll-top-btn">
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float">
+        <div class="tooltip">Chat with us!</div>
+        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27m%20interested%20in%20your%20products" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
-        // Mobile navigation toggle
-        const burger = document.querySelector('.burger');
-        const nav = document.querySelector('.nav-links');
-        const navLinks = document.querySelectorAll('.nav-links li');
+        // Preloader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('preloader').classList.add('hidden');
+            }, 800);
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile menu
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('navLinks');
 
         burger.addEventListener('click', () => {
-            // Toggle Nav
-            nav.classList.toggle('nav-active');
-            
-            // Animate Links
-            navLinks.forEach((link, index) => {
-                if (link.style.animation) {
-                    link.style.animation = '';
-                } else {
-                    link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-                }
-            });
-            
-            // Burger Animation
-            burger.classList.toggle('toggle');
+            burger.classList.toggle('active');
+            navLinks.classList.toggle('active');
         });
 
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (nav.classList.contains('nav-active')) {
-                    nav.classList.remove('nav-active');
-                    burger.classList.remove('toggle');
-                    navLinks.forEach(link => {
-                        link.style.animation = '';
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Scroll reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Animated counters
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        const target = parseInt(counter.dataset.target);
+                        const suffix = counter.querySelector('span').textContent;
+                        const duration = 2000;
+                        const step = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += step;
+                            if (current < target) {
+                                counter.innerHTML = Math.ceil(current) + '<span>' + suffix + '</span>';
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                counter.innerHTML = target + '<span>' + suffix + '</span>';
+                            }
+                        };
+                        updateCounter();
                     });
+                    counterObserver.unobserve(entry.target);
                 }
             });
-        });
+        }, { threshold: 0.5 });
 
-        // Product category filtering
-        const productCategories = document.querySelectorAll('.product-category');
+        document.querySelectorAll('.stats-inner').forEach(el => counterObserver.observe(el));
+
+        // Product filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
         const productCards = document.querySelectorAll('.product-card');
-        
-        productCategories.forEach(category => {
-            category.addEventListener('click', () => {
-                // Remove active class from all categories
-                productCategories.forEach(cat => cat.classList.remove('active'));
-                
-                // Add active class to clicked category
-                category.classList.add('active');
-                
-                // Get category type
-                const categoryType = category.getAttribute('data-category');
-                
-                // Show/hide products based on category
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const category = btn.dataset.category;
+
                 productCards.forEach(card => {
-                    if (categoryType === 'all' || card.getAttribute('data-type') === categoryType) {
-                        card.style.display = 'block';
+                    if (category === 'all' || card.dataset.type === category) {
+                        card.style.display = '';
+                        card.style.animation = 'heroFadeUp 0.5s forwards';
                     } else {
                         card.style.display = 'none';
                     }
@@ -1384,60 +2212,69 @@
         });
 
         // Testimonial slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentSlide = 0;
-        
-        function showSlide(n) {
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            testimonials[n].classList.add('active');
-            dots[n].classList.add('active');
-            currentSlide = n;
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        let currentTestimonial = 0;
+        let testimonialTimer;
+
+        function showTestimonial(index) {
+            const prev = currentTestimonial;
+            currentTestimonial = index;
+
+            testimonialCards.forEach((card, i) => {
+                card.classList.remove('active', 'prev');
+                if (i === index) card.classList.add('active');
+                else if (i === prev) card.classList.add('prev');
+            });
+
+            testimonialDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
         }
-        
-        dots.forEach((dot, index) => {
+
+        function nextTestimonial() {
+            showTestimonial((currentTestimonial + 1) % testimonialCards.length);
+        }
+
+        function startAutoSlide() {
+            testimonialTimer = setInterval(nextTestimonial, 5000);
+        }
+
+        testimonialDots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
-                showSlide(index);
+                clearInterval(testimonialTimer);
+                showTestimonial(i);
+                startAutoSlide();
             });
         });
-        
-        // Auto rotate testimonials
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % testimonials.length;
-            showSlide(currentSlide);
-        }, 5000);
 
-        // Contact form submission
-        const orderForm = document.getElementById('orderForm');
-        
-        orderForm.addEventListener('submit', function(e) {
+        startAutoSlide();
+
+        // Contact form
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const name = document.getElementById('name').value;
             const product = document.getElementById('product').value;
-            
-            alert(`Thank you, ${name}! Your inquiry for ${product} has been received. We will contact you shortly.`);
-            orderForm.reset();
+            const quantity = document.getElementById('quantity').value;
+            const phone = document.getElementById('phone').value;
+
+            const message = encodeURIComponent(
+                `Hi, I'm ${name}.\nI'd like to order ${quantity} kg/ltr of ${product}.\nMy phone: ${phone}`
+            );
+
+            window.open(`https://wa.me/919633490083?text=${message}`, '_blank');
+            this.reset();
         });
 
-        // Scroll to top button
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        
+        // Scroll to top
+        const scrollTopBtn = document.getElementById('scrollTop');
+
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
         });
-        
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
