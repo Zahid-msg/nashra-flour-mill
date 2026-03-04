@@ -135,13 +135,17 @@
         .logo-icon {
             width: 42px;
             height: 42px;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            border-radius: 12px;
+            border-radius: 50%;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            color: var(--brown);
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -1517,7 +1521,7 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <a href="#" class="logo">
-            <div class="logo-icon"><i class="fas fa-wheat-awn"></i></div>
+            <div class="logo-icon"><img src="assets/logo.png" alt="NFM Logo"></div>
             <div class="logo-text">
                 Nashra
                 <span>Flour Mill &bull; Uppala</span>
@@ -1851,7 +1855,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <a href="#" class="logo" style="margin-bottom: 8px;">
-                    <div class="logo-icon"><i class="fas fa-wheat-awn"></i></div>
+                    <div class="logo-icon"><img src="assets/logo.png" alt="NFM Logo"></div>
                     <div class="logo-text">
                         Nashra
                         <span>Flour Mill</span>
