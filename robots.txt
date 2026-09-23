@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zahid-msg.github.io/nashra-flour-mill/sitemap.xml

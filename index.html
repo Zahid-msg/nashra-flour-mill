@@ -1,2198 +1,476 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nashra Flour Mill - Premium Quality Flours & Spices | Uppala, Kerala</title>
-    <meta name="description" content="Nashra Flour Mill - Premium quality flours, spices, and oils since 2015. Traditional milling techniques, 100% pure & natural products from Uppala, Kerala.">
-    <meta name="keywords" content="flour mill, spices, Kerala, Uppala, wheat flour, rice flour, turmeric, chilly powder, coconut oil">
-    <meta property="og:title" content="Nashra Flour Mill Uppala - Premium Quality Flours & Spices">
-    <meta property="og:description" content="Nashra Flour Mill Uppala - Experience the authentic taste of freshly ground spices and flours since 2015.">
-    <meta property="og:type" content="website">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --brown: #3d2516;
-            --brown-light: #5c3d2e;
-            --gold: #c8956c;
-            --gold-light: #e6b17e;
-            --cream: #faf6f1;
-            --cream-dark: #f0e8de;
-            --white: #ffffff;
-            --text: #2d2d2d;
-            --text-light: #6b6b6b;
-            --text-muted: #999;
-            --shadow: 0 8px 30px rgba(0,0,0,0.08);
-            --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
-            --radius: 16px;
-            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 112px;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--cream);
-            color: var(--text);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            line-height: 1.3;
-        }
-
-        /* Preloader */
-        .preloader {
-            position: fixed;
-            inset: 0;
-            background: var(--brown);
-            z-index: 10000;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.6s, visibility 0.6s;
-        }
-
-        .preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .preloader-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--gold-light);
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-        }
-
-        .preloader-bar {
-            width: 200px;
-            height: 2px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .preloader-bar::after {
-            content: '';
-            display: block;
-            width: 40%;
-            height: 100%;
-            background: var(--gold-light);
-            border-radius: 2px;
-            animation: preload 1.2s ease-in-out infinite;
-        }
-
-        @keyframes preload {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(350%); }
-        }
-
-        /* Navigation */
-        /* Visitor Counter Bar */
-        .visitor-bar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1001;
-            background: var(--brown);
-            color: var(--gold-light);
-            text-align: center;
-            padding: 6px 0;
-            font-size: 0.8rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .visitor-bar i {
-            font-size: 0.75rem;
-        }
-
-        .visitor-count {
-            font-weight: 700;
-            color: var(--white);
-        }
-
-        .navbar {
-            position: fixed;
-            top: 32px;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled {
-            background: rgba(61, 37, 22, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 12px 5%;
-            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .logo-text span {
-            display: block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.6rem;
-            font-weight: 400;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--gold-light);
-            margin-top: -2px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .nav-links a {
-            color: rgba(255,255,255,0.85);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 8px 18px;
-            border-radius: 50px;
-            transition: var(--transition);
-            letter-spacing: 0.3px;
-        }
-
-        .nav-links a:hover {
-            color: #fff;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .nav-links .btn-contact {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            color: var(--brown);
-            font-weight: 600;
-            padding: 10px 24px;
-        }
-
-        .nav-links .btn-contact:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(200, 149, 108, 0.4);
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-        }
-
-        .burger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-            z-index: 1001;
-        }
-
-        .burger span {
-            width: 24px;
-            height: 2px;
-            background: #fff;
-            border-radius: 2px;
-            transition: var(--transition);
-        }
-
-        .burger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .burger.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .burger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: var(--brown);
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.4;
-            transform: scale(1.1);
-            transition: transform 10s ease;
-        }
-
-        .hero:hover .hero-bg {
-            transform: scale(1);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(61,37,22,0.6) 0%, rgba(61,37,22,0.8) 100%);
-        }
-
-        .hero-grain {
-            position: absolute;
-            inset: 0;
-            opacity: 0.03;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            max-width: 900px;
-            padding: 0 20px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(230, 177, 126, 0.15);
-            border: 1px solid rgba(230, 177, 126, 0.3);
-            padding: 8px 20px;
-            border-radius: 50px;
-            color: var(--gold-light);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: heroFadeUp 0.8s 0.5s forwards;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.8rem, 6vw, 5rem);
-            color: #fff;
-            margin-bottom: 24px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: heroFadeUp 0.8s 0.7s forwards;
-        }
-
-        .hero h1 .accent {
-            background: linear-gradient(135deg, var(--gold-light), #d4a574);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            color: rgba(255,255,255,0.75);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            font-weight: 300;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: heroFadeUp 0.8s 0.9s forwards;
-        }
-
-        .hero-btns {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: heroFadeUp 0.8s 1.1s forwards;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            color: var(--brown);
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(200, 149, 108, 0.4);
-        }
-
-        .btn-outline {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: transparent;
-            color: #fff;
-            padding: 14px 32px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: var(--transition);
-            border: 1.5px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-outline:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.5);
-            transform: translateY(-3px);
-        }
-
-        @keyframes heroFadeUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            color: rgba(255,255,255,0.5);
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            animation: heroFadeUp 0.8s 1.5s forwards;
-            opacity: 0;
-        }
-
-        .hero-scroll .mouse {
-            width: 24px;
-            height: 38px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 12px;
-            position: relative;
-        }
-
-        .hero-scroll .mouse::after {
-            content: '';
-            position: absolute;
-            top: 6px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 3px;
-            height: 8px;
-            background: var(--gold-light);
-            border-radius: 3px;
-            animation: scrollMouse 2s infinite;
-        }
-
-        @keyframes scrollMouse {
-            0%, 100% { opacity: 1; top: 6px; }
-            50% { opacity: 0; top: 18px; }
-        }
-
-        /* Stats Bar */
-        .stats-bar {
-            background: var(--white);
-            padding: 0 5%;
-            position: relative;
-            z-index: 3;
-        }
-
-        .stats-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: var(--cream-dark);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-50%);
-        }
-
-        .stat-item {
-            background: var(--white);
-            padding: 35px 20px;
-            text-align: center;
-            transition: var(--transition);
-        }
-
-        .stat-item:hover {
-            background: var(--cream);
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--brown);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-
-        .stat-number span {
-            color: var(--gold);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Section Base */
-        .section {
-            padding: 100px 5%;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto 60px;
-        }
-
-        .section-tag {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--gold);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--brown);
-            margin-bottom: 16px;
-        }
-
-        .section-header p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-        }
-
-        /* Reveal Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* About */
-        .about {
-            background: var(--white);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-        }
-
-        .about-image-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: 20px;
-            bottom: 20px;
-            border: 2px solid var(--gold-light);
-            border-radius: var(--radius);
-            z-index: 0;
-        }
-
-        .about-image {
-            position: relative;
-            z-index: 1;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 450px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.8s ease;
-        }
-
-        .about-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-experience {
-            position: absolute;
-            bottom: -20px;
-            right: -20px;
-            z-index: 2;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            color: var(--brown);
-            padding: 24px 30px;
-            border-radius: var(--radius);
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(200, 149, 108, 0.4);
-        }
-
-        .about-experience .number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-
-        .about-experience .label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--brown);
-            margin-bottom: 20px;
-        }
-
-        .about-text p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-            font-size: 1.02rem;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 30px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 18px;
-            background: var(--cream);
-            border-radius: 12px;
-            transition: var(--transition);
-        }
-
-        .feature-item:hover {
-            background: var(--cream-dark);
-            transform: translateX(5px);
-        }
-
-        .feature-item i {
-            color: var(--gold);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .feature-item span {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--brown);
-        }
-
-        /* Products */
-        .products {
-            background: var(--cream);
-        }
-
-        .product-filters {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        .filter-btn {
-            padding: 10px 24px;
-            background: var(--white);
-            border: 1.5px solid transparent;
-            border-radius: 50px;
-            color: var(--text-light);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .filter-btn:hover {
-            border-color: var(--gold-light);
-            color: var(--brown);
-        }
-
-        .filter-btn.active {
-            background: var(--brown);
-            color: var(--white);
-            border-color: var(--brown);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 28px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .product-img {
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1.1);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 16px;
-            left: 16px;
-            background: var(--brown);
-            color: var(--gold-light);
-            padding: 4px 14px;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .product-info {
-            padding: 24px;
-        }
-
-        .product-info h3 {
-            font-size: 1.2rem;
-            color: var(--brown);
-            margin-bottom: 8px;
-        }
-
-        .product-info p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .product-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .product-price {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--brown);
-        }
-
-        .product-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            color: var(--brown);
-            padding: 8px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .product-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(200, 149, 108, 0.35);
-        }
-
-        /* Process */
-        .process {
-            background: var(--white);
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .process-card {
-            text-align: center;
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .process-card:hover {
-            background: var(--cream);
-        }
-
-        .process-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8rem;
-            color: var(--gold);
-            transition: var(--transition);
-        }
-
-        .process-card:hover .process-icon {
-            background: linear-gradient(135deg, var(--gold-light), var(--gold));
-            color: var(--brown);
-            transform: rotateY(180deg);
-        }
-
-        .process-step-num {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--cream-dark);
-            line-height: 1;
-        }
-
-        .process-card h3 {
-            font-size: 1.2rem;
-            color: var(--brown);
-            margin-bottom: 12px;
-        }
-
-        .process-card p {
-            color: var(--text-light);
-            font-size: 0.92rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: var(--brown);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials .section-tag {
-            color: var(--gold-light);
-        }
-
-        .testimonials .section-header h2 {
-            color: var(--white);
-        }
-
-        .testimonials .section-header p {
-            color: rgba(255,255,255,0.6);
-        }
-
-        .testimonial-container {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            min-height: 280px;
-        }
-
-        .testimonial-card {
-            position: absolute;
-            width: 100%;
-            background: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: var(--radius);
-            opacity: 0;
-            transform: translateX(60px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            pointer-events: none;
-        }
-
-        .testimonial-card.active {
-            opacity: 1;
-            transform: translateX(0);
-            pointer-events: auto;
-        }
-
-        .testimonial-card.prev {
-            transform: translateX(-60px);
-            opacity: 0;
-        }
-
-        .testimonial-quote {
-            font-size: 3rem;
-            color: var(--gold-light);
-            opacity: 0.3;
-            line-height: 1;
-            margin-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .testimonial-text {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.85);
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .testimonial-author img {
-            width: 52px;
-            height: 52px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--gold-light);
-        }
-
-        .author-name {
-            font-weight: 600;
-            color: var(--white);
-            font-size: 1rem;
-        }
-
-        .author-location {
-            color: rgba(255,255,255,0.5);
-            font-size: 0.85rem;
-        }
-
-        .testimonial-nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 40px;
-        }
-
-        .testimonial-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            padding: 0;
-        }
-
-        .testimonial-dot.active {
-            background: var(--gold-light);
-            width: 30px;
-            border-radius: 5px;
-        }
-
-        /* Contact */
-        .contact {
-            background: var(--white);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info h3 {
-            font-size: 1.6rem;
-            color: var(--brown);
-            margin-bottom: 8px;
-        }
-
-        .contact-info > p {
-            color: var(--text-light);
-            margin-bottom: 32px;
-        }
-
-        .info-card {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
-            padding: 20px;
-            border-radius: 12px;
-            transition: var(--transition);
-        }
-
-        .info-card:hover {
-            background: var(--cream);
-        }
-
-        .info-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--cream), var(--cream-dark));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-
-        .info-card h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--brown);
-            margin-bottom: 4px;
-        }
-
-        .info-card p {
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        .info-card a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .info-card a:hover {
-            color: var(--gold);
-        }
-
-        .contact-social {
-            display: flex;
-            gap: 12px;
-            margin-top: 32px;
-            padding-left: 20px;
-        }
-
-        .contact-social a {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--cream);
-            color: var(--brown);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 1.1rem;
-        }
-
-        .contact-social a:hover {
-            background: var(--brown);
-            color: var(--gold-light);
-            transform: translateY(-3px);
-        }
-
-        .contact-form-wrapper {
-            background: var(--cream);
-            padding: 40px;
-            border-radius: var(--radius);
-        }
-
-        .contact-form-wrapper h3 {
-            font-size: 1.4rem;
-            color: var(--brown);
-            margin-bottom: 24px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-
-        .form-group {
-            margin-bottom: 18px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--brown);
-            margin-bottom: 6px;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1.5px solid var(--cream-dark);
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            background: var(--white);
-            color: var(--text);
-            transition: var(--transition);
-            outline: none;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: var(--gold);
-            box-shadow: 0 0 0 3px rgba(200, 149, 108, 0.15);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b6b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            padding-right: 40px;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            background: linear-gradient(135deg, var(--brown), var(--brown-light));
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(61, 37, 22, 0.3);
-        }
-
-        /* Map */
-        .map-section {
-            padding: 0 5% 100px;
-            background: var(--white);
-        }
-
-        .map-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .map-wrapper iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-            display: block;
-        }
-
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 999;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .whatsapp-float .tooltip {
-            background: var(--white);
-            color: var(--text);
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateX(10px);
-            transition: var(--transition);
-            white-space: nowrap;
-        }
-
-        .whatsapp-float:hover .tooltip {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .whatsapp-btn {
-            width: 56px;
-            height: 56px;
-            background: #25d366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.6rem;
-            text-decoration: none;
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
-            transition: var(--transition);
-            animation: whatsappPulse 2s infinite;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-        }
-
-        @keyframes whatsappPulse {
-            0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
-            50% { box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6); }
-        }
-
-        /* Scroll to Top */
-        .scroll-top {
-            position: fixed;
-            bottom: 100px;
-            right: 38px;
-            width: 40px;
-            height: 40px;
-            background: var(--brown);
-            color: var(--gold-light);
-            border: none;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1rem;
-            z-index: 999;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
-        }
-
-        .scroll-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .scroll-top:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--brown);
-            color: var(--white);
-            padding: 80px 5% 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-        }
-
-        .footer-brand p {
-            color: rgba(255,255,255,0.6);
-            margin: 16px 0 24px;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .footer-social {
-            display: flex;
-            gap: 10px;
-        }
-
-        .footer-social a {
-            width: 38px;
-            height: 38px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.08);
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-social a:hover {
-            background: var(--gold-light);
-            color: var(--brown);
-        }
-
-        .footer-col h4 {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--gold-light);
-            margin-bottom: 20px;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col a {
-            color: rgba(255,255,255,0.6);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-
-        .footer-col a:hover {
-            color: var(--gold-light);
-        }
-
-        .footer-hours li {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.6);
-        }
-
-        .footer-hours li .day {
-            font-weight: 500;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .footer-hours li .closed {
-            color: #ff6b6b;
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .footer-bottom p {
-            color: rgba(255,255,255,0.4);
-            font-size: 0.85rem;
-        }
-
-        .footer-bottom a {
-            color: rgba(255,255,255,0.4);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.3s;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--gold-light);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .about-grid {
-                gap: 50px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                inset: 0;
-                background: rgba(61, 37, 22, 0.98);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                flex-direction: column;
-                justify-content: center;
-                gap: 16px;
-                transform: translateX(100%);
-                transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-            }
-
-            .nav-links.active {
-                transform: translateX(0);
-            }
-
-            .nav-links a {
-                font-size: 1.3rem;
-                padding: 12px 24px;
-            }
-
-            .burger {
-                display: flex;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .stats-inner {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .about-image img {
-                height: 300px;
-            }
-
-            .about-features {
-                grid-template-columns: 1fr;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .footer-bottom {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .testimonial-card {
-                padding: 28px;
-            }
-
-            .contact-form-wrapper {
-                padding: 28px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .stats-inner {
-                grid-template-columns: 1fr 1fr;
-                transform: translateY(-30px);
-            }
-
-            .stat-item {
-                padding: 24px 12px;
-            }
-
-            .stat-number {
-                font-size: 2rem;
-            }
-
-            .section {
-                padding: 70px 5%;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nashra Flour Mill Uppala — Fresh Flours, Spices &amp; Oils Since 2015</title>
+  <meta name="description" content="Nashra Flour Mill, Uppala, Kerala — rice, wheat and spice grinding since 2015. Freshly milled flours, pure spice powders and coconut oil. Order on WhatsApp.">
+  <meta name="keywords" content="flour mill Uppala, spice grinding Kasaragod, rice flour, wheat flour, puttu flour, turmeric powder, chilly powder, coconut oil, Kerala">
+  <meta name="theme-color" content="#2a1a10">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nashra Flour Mill">
+  <meta property="og:title" content="Nashra Flour Mill Uppala — Fresh Flours, Spices &amp; Oils">
+  <meta property="og:description" content="Rice, wheat and spice grinding in Uppala, Kerala since 2015. Order fresh on WhatsApp.">
+  <link rel="canonical" href="https://zahid-msg.github.io/nashra-flour-mill/">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta property="og:url" content="https://zahid-msg.github.io/nashra-flour-mill/">
+  <meta property="og:image" content="https://zahid-msg.github.io/nashra-flour-mill/assets/icons/icon-512.png">
+  <meta property="og:image:alt" content="Nashra Flour Mill logo">
+  <meta property="og:locale" content="en_IN">
+  <meta name="twitter:card" content="summary">
+
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.remove('no-js');
+      try { var t = localStorage.getItem('nfm:theme'); if (t) d.dataset.theme = t; } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.pexels.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "@id": "https://zahid-msg.github.io/nashra-flour-mill/#store",
+    "name": "Nashra Flour Mill",
+    "description": "Freshly milled flours, spices and oils in Uppala, Kerala, since 2015.",
+    "url": "https://zahid-msg.github.io/nashra-flour-mill/",
+    "image": "https://zahid-msg.github.io/nashra-flour-mill/assets/icons/icon-512.png",
+    "logo": "https://zahid-msg.github.io/nashra-flour-mill/assets/logo.png",
+    "telephone": ["+91-94009-50083", "+91-96334-90083"],
+    "email": "info@nashraflourmill.com",
+    "foundingDate": "2015",
+    "priceRange": "₹",
+    "currenciesAccepted": "INR",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Firdouse Nagar, Maidan Road",
+      "addressLocality": "Uppala",
+      "addressRegion": "Kerala",
+      "postalCode": "671322",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 12.6666381,
+      "longitude": 74.9162073
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "18:15"
+      }
+    ]
+  }
+  </script>
+
+  <script src="assets/js/visitor-counter.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-logo">Nashra Flour Mill</div>
-        <div class="preloader-bar"></div>
+  <!-- Top bar: live open status + visitor counter -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span class="open-status" id="openStatus" aria-live="polite">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="openStatusText">Mon–Sat · 9:00 AM – 6:15 PM</span>
+        </span>
+        <a class="topbar-phone" href="tel:+919400950083"><i class="fas fa-phone" aria-hidden="true"></i> +91 94009 50083</a>
+      </div>
+      <div class="visitor-bar" id="visitorBar" title="Visitors to this site">
+        <i class="fas fa-eye" aria-hidden="true"></i>
+        <span>NFM #<span class="visitor-count" id="visitorCount"></span></span>
+      </div>
     </div>
+  </div>
 
-    <!-- Visitor Counter Bar -->
-    <div class="visitor-bar" id="visitorBar">
-        <span>NFM #<span class="visitor-count" id="visitorCount">...</span></span>
-    </div>
+  <!-- Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container">
+      <a href="#top" class="logo" aria-label="Nashra Flour Mill home">
+        <img src="assets/logo-small.png" alt="" width="44" height="44">
+        <span class="logo-text">Nashra<small>Flour Mill · Uppala</small></span>
+      </a>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <a href="#" class="logo">
-            <div class="logo-icon"><img src="assets/logo.png" alt="NFM Logo"></div>
-            <div class="logo-text">
-                Nashra
-                <span>Flour Mill &bull; Uppala</span>
-            </div>
-        </a>
+      <nav aria-label="Main">
         <ul class="nav-links" id="navLinks">
-            <li><a href="#about">About</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#process">Process</a></li>
-            <li><a href="#testimonials">Reviews</a></li>
-            <li><a href="#contact" class="btn-contact">Contact Us</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-        <div class="burger" id="burger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+      </nav>
 
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i><i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+        <a class="btn btn-gold" href="https://wa.me/919633490083?text=Hi%2C%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener">
+          <i class="fab fa-whatsapp" aria-hidden="true"></i><span>Order now</span>
+        </a>
+        <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
     <!-- Hero -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-grain"></div>
-        <div class="hero-content">
-            <div class="hero-badge">
-                <i class="fas fa-star"></i>
-                Trusted Since 2015 &bull; Uppala, Kerala
-            </div>
-            <h1>Nashra Flour Mill<br><span class="accent">Uppala, Kerala</span></h1>
-            <p>Rice, Wheat & Spices Grinding — premium quality flours, aromatic spices, and pure oils freshly ground at our mill in Uppala since 2015.</p>
-            <div class="hero-btns">
-                <a href="#products" class="btn-primary">
-                    Explore Products <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#contact" class="btn-outline">
-                    <i class="fas fa-phone"></i> Get in Touch
-                </a>
-            </div>
+    <section class="hero" id="top">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow reveal"><span class="pill">Since 2015</span> Uppala · Kerala</span>
+          <h1 class="reveal" style="--d:.1s">Freshly ground,<br><em>the way it should be.</em></h1>
+          <p class="hero-lede reveal" style="--d:.2s">Rice, wheat &amp; spice grinding at Nashra Flour Mill — pure flours, aromatic masalas and coconut oil, milled fresh in Uppala every day.</p>
+          <div class="hero-ctas reveal" style="--d:.3s">
+            <a href="#products" class="btn btn-gold">Browse products <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#contact" class="btn btn-ghost"><i class="fas fa-location-dot" aria-hidden="true"></i> Visit the mill</a>
+          </div>
+          <ul class="hero-trust reveal" style="--d:.4s">
+            <li><i class="fas fa-leaf" aria-hidden="true"></i> 100% pure</li>
+            <li><i class="fas fa-ban" aria-hidden="true"></i> No preservatives</li>
+            <li><i class="fas fa-truck-fast" aria-hidden="true"></i> Order on WhatsApp</li>
+          </ul>
         </div>
-        <div class="hero-scroll">
-            <div class="mouse"></div>
-            Scroll
+
+        <div class="hero-visual reveal" style="--d:.2s" aria-hidden="true">
+          <div class="hero-photo main"><img id="heroPhotoMain" src="https://images.pexels.com/photos/4199095/pexels-photo-4199095.jpeg?auto=compress&cs=tinysrgb&w=900" alt="" fetchpriority="high"></div>
+          <div class="hero-photo small"><img id="heroPhotoSmall" src="https://images.pexels.com/photos/6220707/pexels-photo-6220707.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" loading="lazy"></div>
+          <div class="float-card one"><span class="fc-icon"><i class="fas fa-wheat-awn"></i></span><div><strong>Ground fresh</strong><span>Every single day</span></div></div>
+          <div class="float-card two"><span class="fc-icon"><i class="fas fa-heart"></i></span><div><strong>5,000+ families</strong><span>trust our mill</span></div></div>
         </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"></div>
     </section>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-        <div class="stats-inner reveal">
-            <div class="stat-item">
-                <div class="stat-number" data-target="10">0<span>+</span></div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="14">0<span>+</span></div>
-                <div class="stat-label">Products</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="5000">0<span>+</span></div>
-                <div class="stat-label">Happy Customers</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-target="100">0<span>%</span></div>
-                <div class="stat-label">Pure & Natural</div>
-            </div>
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Wheat Flour</span><span>Rice Flour</span><span>Puttu Flour</span><span>Kashmiri Chilly</span><span>Turmeric</span><span>Coriander</span><span>Jeera</span><span>Pepper</span><span>Garam Masala</span><span>Coconut Oil</span>
+        <span>Wheat Flour</span><span>Rice Flour</span><span>Puttu Flour</span><span>Kashmiri Chilly</span><span>Turmeric</span><span>Coriander</span><span>Jeera</span><span>Pepper</span><span>Garam Masala</span><span>Coconut Oil</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <section class="stats" aria-label="Nashra in numbers">
+      <div class="container">
+        <div class="stats-grid reveal" id="stats">
+          <div class="stat"><div class="stat-num" data-count="10">0<sup>+</sup></div><div class="stat-label">Years milling</div></div>
+          <div class="stat"><div class="stat-num" data-count="13" id="productCountStat">0<sup>+</sup></div><div class="stat-label">Products</div></div>
+          <div class="stat"><div class="stat-num" data-count="5000">0<sup>+</sup></div><div class="stat-label">Happy customers</div></div>
+          <div class="stat"><div class="stat-num" data-count="100">0<sup>%</sup></div><div class="stat-label">Pure &amp; natural</div></div>
         </div>
+      </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="section about">
-        <div class="section-header reveal">
-            <div class="section-tag">Our Story</div>
-            <h2>A Legacy of Quality & Tradition</h2>
-            <p>Nashra Flour Mill, Uppala — serving the community with premium products milled with care and passion since 2015</p>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Our story</span>
+          <h2>A small mill with a <em>big promise</em></h2>
+          <p>Serving Uppala and Kasaragod families since 2015 — honest grinding, clean machines, and nothing added.</p>
         </div>
-        <div class="about-grid">
-            <div class="about-image-wrapper reveal">
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1586444248902-2f64eddc13df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Nashra Flour Mill - Traditional Milling">
-                </div>
-                <div class="about-experience">
-                    <div class="number">10+</div>
-                    <div class="label">Years of Trust</div>
-                </div>
+
+        <div class="bento">
+          <article class="tile tile-story reveal">
+            <div>
+              <h3>Crafted with tradition,<br>delivered with care.</h3>
+              <p>Nashra Flour Mill has been a trusted name in Uppala since 2015. We combine time-honoured milling with modern hygiene standards to bring the freshest, most aromatic flours and spices to your kitchen.</p>
+              <p>It starts with hand-selected raw materials from suppliers we know. Every batch that leaves the mill is cleaned, dried, ground and checked by us — so what you cook with is exactly what it says on the pack.</p>
             </div>
-            <div class="about-text reveal">
-                <h3>Crafted with Tradition,<br>Delivered with Care</h3>
-                <p>Nashra Flour Mill Uppala has been a trusted name in Uppala, Kerala since 2015. We blend time-honored milling techniques with modern standards to deliver the freshest, most aromatic flours and spices to your kitchen.</p>
-                <p>Our commitment to quality begins with hand-selecting the finest raw materials from trusted suppliers. Every product that leaves our mill meets the highest standards of purity and taste.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <i class="fas fa-leaf"></i>
-                        <span>100% Pure & Natural</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-shield-halved"></i>
-                        <span>No Preservatives</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-mortar-pestle"></i>
-                        <span>Traditional Milling</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-hand-sparkles"></i>
-                        <span>Hygienic Processing</span>
-                    </div>
-                </div>
+            <div class="signature">
+              <img src="assets/logo-small.png" alt="" width="52" height="52" loading="lazy">
+              <div><strong>Nashra Flour Mill</strong><span>Firdouse Nagar, Uppala</span></div>
             </div>
+          </article>
+
+          <div class="tile tile-photo reveal" style="--d:.1s">
+            <img id="aboutPhoto" src="https://images.pexels.com/photos/29118168/pexels-photo-29118168.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Grain being processed at a mill" loading="lazy">
+            <div class="badge-years"><strong>10+</strong><span>Years of trust</span></div>
+          </div>
+
+          <div class="tile tile-feat tile-dark reveal">
+            <div class="tile-icon"><i class="fas fa-leaf" aria-hidden="true"></i></div>
+            <h3>100% pure</h3>
+            <p>No fillers, no colour, no shortcuts.</p>
+          </div>
+          <div class="tile tile-feat reveal" style="--d:.05s">
+            <div class="tile-icon"><i class="fas fa-shield-halved" aria-hidden="true"></i></div>
+            <h3>No preservatives</h3>
+            <p>Ground fresh, so it doesn't need them.</p>
+          </div>
+          <div class="tile tile-feat reveal" style="--d:.1s">
+            <div class="tile-icon"><i class="fas fa-mortar-pestle" aria-hidden="true"></i></div>
+            <h3>Traditional milling</h3>
+            <p>Slow grinding keeps aroma and oils intact.</p>
+          </div>
+          <div class="tile tile-feat reveal" style="--d:.15s">
+            <div class="tile-icon"><i class="fas fa-hand-sparkles" aria-hidden="true"></i></div>
+            <h3>Hygienic</h3>
+            <p>Cleaned machines, sealed packing.</p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Products -->
-    <section id="products" class="section products">
-        <div class="section-header reveal">
-            <div class="section-tag">Our Products</div>
-            <h2>Freshly Milled in Uppala, Perfectly Packed</h2>
-            <p>Discover our premium range of flours, spices, oils, and pastes</p>
+    <section class="section section-alt" id="products">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Our products</span>
+          <h2>Milled in Uppala, <em>priced honestly</em></h2>
+          <p>Add what you need to your order, then send it to us on WhatsApp in one tap.</p>
         </div>
 
-        <div class="product-filters reveal">
-            <button class="filter-btn active" data-category="all">All Products</button>
-            <button class="filter-btn" data-category="flours">Flours</button>
-            <button class="filter-btn" data-category="spices">Spices</button>
-            <button class="filter-btn" data-category="oils">Oils & Pastes</button>
+        <div class="shop-toolbar reveal">
+          <div class="chips" role="group" aria-label="Filter by category" id="filters">
+            <button class="chip" type="button" data-category="all" aria-pressed="true">All <span class="count"></span></button>
+            <button class="chip" type="button" data-category="flours" aria-pressed="false">Flours <span class="count"></span></button>
+            <button class="chip" type="button" data-category="spices" aria-pressed="false">Spices <span class="count"></span></button>
+            <button class="chip" type="button" data-category="oils" aria-pressed="false">Oils &amp; pastes <span class="count"></span></button>
+          </div>
+          <label class="search">
+            <span class="sr-only">Search products</span>
+            <i class="fas fa-magnifying-glass" aria-hidden="true"></i>
+            <input type="search" id="productSearch" placeholder="Search turmeric, puttu, oil…" autocomplete="off">
+          </label>
         </div>
 
-        <div class="product-grid" id="productGrid">
-            <!-- Products loaded dynamically from prices.json -->
+        <div class="product-grid" id="productGrid" aria-live="polite">
+          <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
         </div>
+        <p class="price-note">Prices per kg / litre. Final price confirmed on WhatsApp.</p>
+      </div>
     </section>
 
     <!-- Process -->
-    <section id="process" class="section process">
-        <div class="section-header reveal">
-            <div class="section-tag">Our Process</div>
-            <h2>From Source to Your Kitchen</h2>
-            <p>Every step is carefully executed to deliver unmatched quality</p>
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Our process</span>
+          <h2>From the field <em>to your kitchen</em></h2>
+          <p>Six careful steps behind every pack.</p>
         </div>
-        <div class="process-grid">
-            <div class="process-card reveal">
-                <div class="process-step-num">01</div>
-                <div class="process-icon"><i class="fas fa-seedling"></i></div>
-                <h3>Selection</h3>
-                <p>We hand-select the finest raw materials from trusted local suppliers to ensure premium quality.</p>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-step-num">02</div>
-                <div class="process-icon"><i class="fas fa-broom"></i></div>
-                <h3>Cleaning</h3>
-                <p>Thorough multi-stage cleaning removes all impurities, guaranteeing purity in every batch.</p>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-step-num">03</div>
-                <div class="process-icon"><i class="fas fa-sun"></i></div>
-                <h3>Drying</h3>
-                <p>Materials are dried to optimal moisture for perfect grinding consistency and longer shelf life.</p>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-step-num">04</div>
-                <div class="process-icon"><i class="fas fa-mortar-pestle"></i></div>
-                <h3>Grinding</h3>
-                <p>Traditional techniques meet modern equipment to grind materials to the perfect texture.</p>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-step-num">05</div>
-                <div class="process-icon"><i class="fas fa-microscope"></i></div>
-                <h3>Quality Check</h3>
-                <p>Every batch passes strict quality inspections to ensure it meets our exacting standards.</p>
-            </div>
-            <div class="process-card reveal">
-                <div class="process-step-num">06</div>
-                <div class="process-icon"><i class="fas fa-box"></i></div>
-                <h3>Packaging</h3>
-                <p>Carefully sealed packaging preserves freshness, aroma, and flavor until it reaches you.</p>
-            </div>
-        </div>
+        <ol class="steps">
+          <li class="step reveal"><div class="tile-icon"><i class="fas fa-seedling" aria-hidden="true"></i></div><h3>Selection</h3><p>We hand-pick the finest raw materials from trusted local suppliers.</p></li>
+          <li class="step reveal" style="--d:.05s"><div class="tile-icon"><i class="fas fa-broom" aria-hidden="true"></i></div><h3>Cleaning</h3><p>Multi-stage cleaning removes every impurity before grinding.</p></li>
+          <li class="step reveal" style="--d:.1s"><div class="tile-icon"><i class="fas fa-sun" aria-hidden="true"></i></div><h3>Drying</h3><p>Dried to the right moisture for even grinding and longer shelf life.</p></li>
+          <li class="step reveal"><div class="tile-icon"><i class="fas fa-mortar-pestle" aria-hidden="true"></i></div><h3>Grinding</h3><p>Traditional technique on modern machines, for the perfect texture.</p></li>
+          <li class="step reveal" style="--d:.05s"><div class="tile-icon"><i class="fas fa-microscope" aria-hidden="true"></i></div><h3>Quality check</h3><p>Every batch is checked for colour, aroma and fineness.</p></li>
+          <li class="step reveal" style="--d:.1s"><div class="tile-icon"><i class="fas fa-box" aria-hidden="true"></i></div><h3>Packing</h3><p>Sealed right away to lock in freshness and flavour.</p></li>
+        </ol>
+      </div>
     </section>
 
-    <!-- Testimonials -->
-    <section id="testimonials" class="section testimonials">
-        <div class="section-header reveal">
-            <div class="section-tag">Testimonials</div>
-            <h2>Loved by Our Customers</h2>
-            <p>Real stories from the families and businesses who trust us</p>
+    <!-- Reviews -->
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Reviews</span>
+          <h2>Loved in <em>local kitchens</em></h2>
+          <p>What families and businesses say about us.</p>
         </div>
-        <div class="testimonial-container reveal">
-            <div class="testimonial-card active">
-                <div class="testimonial-quote">&ldquo;</div>
-                <p class="testimonial-text">I've been buying spices from Nashra Flour Mill for over 5 years now. Their turmeric and chilly powders are the freshest and most aromatic I've ever used. My dishes have never tasted better!</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya Nair">
-                    <div>
-                        <div class="author-name">Priya Nair</div>
-                        <div class="author-location">Uppala, Kerala</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">&ldquo;</div>
-                <p class="testimonial-text">The wheat flour from Nashra makes the softest chapatis. I've tried many brands but nothing compares to the quality and taste of their products. Highly recommended for every kitchen!</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Rahul Menon">
-                    <div>
-                        <div class="author-name">Rahul Menon</div>
-                        <div class="author-location">Kasaragod, Kerala</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-quote">&ldquo;</div>
-                <p class="testimonial-text">As a restaurant owner, ingredient quality is paramount. Nashra Flour Mill has been our trusted supplier for years. Their consistent quality and timely delivery make them our first choice.</p>
-                <div class="testimonial-author">
-                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Fathima Beevi">
-                    <div>
-                        <div class="author-name">Fathima Beevi</div>
-                        <div class="author-location">Restaurant Owner, Mangalore</div>
-                    </div>
-                </div>
-            </div>
+        <div class="review-track reveal" id="reviewTrack" tabindex="0" aria-label="Customer reviews">
+          <figure class="review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“I've been buying spices from Nashra for over five years. Their turmeric and chilly powders are the freshest I've ever used — my dishes have never tasted better.”</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">PN</span><div><strong>Priya Nair</strong><span>Uppala, Kerala</span></div></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“The wheat flour makes the softest chapatis. I've tried many brands but nothing compares to the quality and taste. Recommended for every kitchen.”</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">RM</span><div><strong>Rahul Menon</strong><span>Kasaragod, Kerala</span></div></figcaption>
+          </figure>
+          <figure class="review">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote>“As a restaurant owner, ingredient quality is everything. Nashra has been our supplier for years — consistent quality and always on time.”</blockquote>
+            <figcaption><span class="avatar" aria-hidden="true">FB</span><div><strong>Fathima Beevi</strong><span>Restaurant owner, Mangalore</span></div></figcaption>
+          </figure>
         </div>
-        <div class="testimonial-nav reveal">
-            <button class="testimonial-dot active" data-slide="0"></button>
-            <button class="testimonial-dot" data-slide="1"></button>
-            <button class="testimonial-dot" data-slide="2"></button>
+        <div class="track-nav">
+          <button class="icon-btn" type="button" data-scroll="-1" aria-label="Previous review"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
+          <button class="icon-btn" type="button" data-scroll="1" aria-label="Next review"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
         </div>
+      </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="section contact">
-        <div class="section-header reveal">
-            <div class="section-tag">Get in Touch</div>
-            <h2>We'd Love to Hear From You</h2>
-            <p>Place an order or ask us anything — we're here to help</p>
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="kicker">Get in touch</span>
+          <h2>Visit, call, or <em>just WhatsApp us</em></h2>
+          <p>Place an order or ask us anything — we usually reply within the hour during opening times.</p>
         </div>
+
         <div class="contact-grid">
-            <div class="contact-info reveal">
-                <h3>Contact Information</h3>
-                <p>Reach out to us through any of these channels</p>
-
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-location-dot"></i></div>
-                    <div>
-                        <h4>Visit Us</h4>
-                        <p>Firdouse Nagar Maidan Road,<br>Uppala, Kerala 671322, India</p>
-                    </div>
+          <div class="reveal">
+            <ul class="info-list">
+              <li class="info-item">
+                <div class="tile-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
+                <div><h3>Visit us</h3><p>Firdouse Nagar, Maidan Road,<br>Uppala, Kerala 671322</p></div>
+              </li>
+              <li class="info-item">
+                <div class="tile-icon"><i class="fas fa-phone" aria-hidden="true"></i></div>
+                <div><h3>Call us</h3><p><a href="tel:+919400950083">+91 94009 50083</a><br><a href="tel:+919633490083">+91 96334 90083</a></p></div>
+              </li>
+              <li class="info-item">
+                <div class="tile-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+                <div><h3>Email</h3><p><a href="mailto:info@nashraflourmill.com">info@nashraflourmill.com</a></p></div>
+              </li>
+              <li class="info-item">
+                <div class="tile-icon"><i class="fas fa-clock" aria-hidden="true"></i></div>
+                <div style="flex:1">
+                  <h3>Opening hours</h3>
+                  <table class="hours-table" id="hoursTable">
+                    <tr data-days="1,2,3,4,5"><td>Monday – Friday</td><td>9:00 AM – 6:15 PM</td></tr>
+                    <tr data-days="6"><td>Saturday</td><td>9:00 AM – 6:15 PM</td></tr>
+                    <tr data-days="0"><td>Sunday</td><td>Closed</td></tr>
+                  </table>
                 </div>
-
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-phone"></i></div>
-                    <div>
-                        <h4>Call Us</h4>
-                        <p><a href="tel:+919400950083">+91 94009 50083</a></p>
-                        <p><a href="tel:+919633490083">+91 96334 90083</a></p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
-                    <div>
-                        <h4>Email Us</h4>
-                        <p><a href="mailto:info@nashraflourmill.com">info@nashraflourmill.com</a></p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-clock"></i></div>
-                    <div>
-                        <h4>Business Hours</h4>
-                        <p>Mon - Sat: 9:00 AM &ndash; 6:15 PM<br>Sunday: Closed</p>
-                    </div>
-                </div>
-
-                <div class="contact-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/919633490083" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
+              </li>
+            </ul>
+            <div class="socials">
+              <a href="https://wa.me/919633490083" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+              <a href="tel:+919400950083" aria-label="Call"><i class="fas fa-phone"></i></a>
+              <a href="mailto:info@nashraflourmill.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
+          </div>
 
-            <div class="contact-form-wrapper reveal">
-                <h3>Send Us a Message</h3>
-                <form id="orderForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="Your name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone</label>
-                            <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="your@email.com" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="product">Product</label>
-                            <select id="product" required>
-                                <option value="">Select a product</option>
-                                <!-- Options loaded dynamically from prices.json -->
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="quantity">Quantity (kg/ltr)</label>
-                            <input type="number" id="quantity" placeholder="e.g. 5" min="1" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (Optional)</label>
-                        <textarea id="message" placeholder="Any special instructions or questions..."></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
-            </div>
+          <div class="form-card reveal" style="--d:.1s">
+            <h3>Quick order</h3>
+            <p>Fill this in and we'll open WhatsApp with your message ready to send.</p>
+            <form id="orderForm" novalidate>
+              <div class="form-row">
+                <div class="field"><label for="name">Your name</label><input type="text" id="name" name="name" autocomplete="name" placeholder="Your name" required></div>
+                <div class="field"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="+91 XXXXX XXXXX" required pattern="[0-9+ \-]{8,16}"></div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label for="product">Product</label>
+                  <select id="product" name="product" required><option value="">Select a product</option></select>
+                </div>
+                <div class="field"><label for="quantity">Quantity (kg / ltr)</label><input type="number" id="quantity" name="quantity" placeholder="e.g. 5" min="0.5" step="0.5" required></div>
+              </div>
+              <div class="field"><label for="message">Message (optional)</label><textarea id="message" name="message" placeholder="Delivery address, pickup time, special instructions…"></textarea></div>
+              <button type="submit" class="btn btn-whatsapp btn-block"><i class="fab fa-whatsapp" aria-hidden="true"></i> Send on WhatsApp</button>
+              <p class="form-hint">Nothing is stored on this website — your message goes straight to our WhatsApp.</p>
+            </form>
+          </div>
         </div>
+
+        <div class="map reveal">
+          <iframe id="mapFrame" title="Map to Nashra Flour Mill, Uppala" src="https://www.google.com/maps/embed?origin=mfe&pb=!1m2!2m1!1sNashra+Flour+Mill+Uppala,+Firdouse+Nagar+Maidan+Road,+Uppala,+Kerala+671322" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <a class="btn btn-dark" id="directionsLink" href="https://www.google.com/maps/dir/?api=1&destination=Nashra+Flour+Mill+Uppala%2C+Firdouse+Nagar+Maidan+Road%2C+Uppala%2C+Kerala+671322" target="_blank" rel="noopener"><i class="fas fa-diamond-turn-right" aria-hidden="true"></i> Get directions</a>
+        </div>
+      </div>
     </section>
 
-    <!-- Map -->
-    <div class="map-section">
-        <div class="map-wrapper reveal">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.5506171130473!2d75.0392!3d12.1234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDA3JzI0LjAiTiA3NcKwMDInMjEuMSJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- CTA -->
+    <section class="container reveal" aria-label="Order">
+      <div class="cta-band">
+        <div>
+          <h2>Fresh masala for this week's cooking?</h2>
+          <p>Message us your list — we'll have it ground and packed.</p>
         </div>
+        <a class="btn btn-dark" href="https://wa.me/919633490083?text=Hi%2C%20I%27d%20like%20to%20place%20an%20order" target="_blank" rel="noopener"><i class="fab fa-whatsapp" aria-hidden="true"></i> Chat on WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#top" class="logo">
+            <img src="assets/logo-small.png" alt="" width="44" height="44" loading="lazy">
+            <span class="logo-text">Nashra<small>Flour Mill · Uppala</small></span>
+          </a>
+          <p>Rice, wheat &amp; spice grinding — premium flours, spices and oils crafted with traditional techniques and modern standards since 2015.</p>
+          <div class="socials">
+            <a href="https://wa.me/919633490083" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="tel:+919400950083" aria-label="Call"><i class="fas fa-phone"></i></a>
+            <a href="mailto:info@nashraflourmill.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div>
+          <h3>Products</h3>
+          <ul>
+            <li><a href="#products" data-filter-link="flours">Flours</a></li>
+            <li><a href="#products" data-filter-link="spices">Spices</a></li>
+            <li><a href="#products" data-filter-link="oils">Oils &amp; pastes</a></li>
+            <li><a href="#products" data-filter-link="all">All products</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Explore</h3>
+          <ul>
+            <li><a href="#about">About us</a></li>
+            <li><a href="#process">Our process</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="tel:+919400950083">+91 94009 50083</a></li>
+            <li><a href="tel:+919633490083">+91 96334 90083</a></li>
+            <li><a href="mailto:info@nashraflourmill.com">info@nashraflourmill.com</a></li>
+            <li>Mon–Sat · 9 AM – 6:15 PM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Nashra Flour Mill, Uppala, Kerala. All rights reserved.</span>
+        <span>Firdouse Nagar, Maidan Road, Uppala 671322</span>
+      </div>
     </div>
+  </footer>
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="#" class="logo" style="margin-bottom: 8px;">
-                    <div class="logo-icon"><img src="assets/logo.png" alt="NFM Logo"></div>
-                    <div class="logo-text">
-                        Nashra
-                        <span>Flour Mill</span>
-                    </div>
-                </a>
-                <p>Nashra Flour Mill Uppala — premium quality flours, spices, and oils crafted with traditional techniques and modern standards since 2015.</p>
-                <div class="footer-social">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/919633490083" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                </div>
-            </div>
-            <div class="footer-col">
-                <h4>Products</h4>
-                <ul>
-                    <li><a href="#products">Flours</a></li>
-                    <li><a href="#products">Spices</a></li>
-                    <li><a href="#products">Oils & Pastes</a></li>
-                    <li><a href="#products">All Products</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#process">Our Process</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Business Hours</h4>
-                <ul class="footer-hours">
-                    <li><span class="day">Mon &ndash; Fri</span> 9 AM &ndash; 6:15 PM</li>
-                    <li><span class="day">Saturday</span> 9 AM &ndash; 6:15 PM</li>
-                    <li><span class="day">Sunday</span> <span class="closed">Closed</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Nashra Flour Mill, Uppala, Kerala. All rights reserved.</p>
-            <a href="tel:+919400950083">+91 94009 50083 / +91 96334 90083</a>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Float -->
-    <div class="whatsapp-float">
-        <div class="tooltip">Chat with us!</div>
-        <a href="https://wa.me/919633490083?text=Hi%2C%20I%27m%20interested%20in%20your%20products" target="_blank" class="whatsapp-btn" aria-label="Chat on WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-    </div>
-
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
-        <i class="fas fa-arrow-up"></i>
+  <!-- Floating actions -->
+  <div class="float-stack">
+    <button class="float-btn float-top" id="scrollTop" type="button" aria-label="Back to top"><i class="fas fa-arrow-up" aria-hidden="true"></i></button>
+    <button class="order-fab" id="orderFab" type="button" hidden aria-haspopup="dialog" aria-controls="orderDrawer">
+      <i class="fas fa-basket-shopping" aria-hidden="true"></i> Your order <span class="badge" id="orderCount">0</span>
     </button>
+    <a class="float-btn float-wa" href="https://wa.me/919633490083?text=Hi%2C%20I%27m%20interested%20in%20your%20products" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+  </div>
 
-    <script>
-        // Load products from prices.json
-        async function loadProducts() {
-            try {
-                const res = await fetch('prices.json');
-                const data = await res.json();
-                const grid = document.getElementById('productGrid');
-                const select = document.getElementById('product');
-                const phone = '919633490083';
+  <!-- Order drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+  <aside class="drawer" id="orderDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" hidden>
+    <div class="drawer-head">
+      <h2 id="drawerTitle">Your order</h2>
+      <button class="icon-btn" type="button" id="drawerClose" aria-label="Close order"><i class="fas fa-xmark" aria-hidden="true"></i></button>
+    </div>
+    <div class="drawer-body" id="drawerItems"></div>
+    <div class="drawer-foot">
+      <div class="total-row"><span>Estimated total</span><strong id="orderTotal">₹0</strong></div>
+      <div class="field" style="margin:0"><label for="orderName">Your name</label><input type="text" id="orderName" autocomplete="name" placeholder="So we know who's ordering"></div>
+      <button class="btn btn-whatsapp btn-block" type="button" id="sendOrder"><i class="fab fa-whatsapp" aria-hidden="true"></i> Send order on WhatsApp</button>
+      <button class="link-btn" type="button" id="clearOrder">Clear order</button>
+    </div>
+  </aside>
 
-                Object.values(data.products).forEach(p => {
-                    const encodedName = encodeURIComponent(p.name);
-                    const card = document.createElement('div');
-                    card.className = 'product-card reveal';
-                    card.dataset.type = p.category;
-                    card.innerHTML = `
-                        <div class="product-img">
-                            <img src="${p.image}" alt="${p.name}" loading="lazy">
-                            <div class="product-badge">${p.badge}</div>
-                        </div>
-                        <div class="product-info">
-                            <h3>${p.name}</h3>
-                            <p>${p.description}</p>
-                            <div class="product-footer">
-                                <div class="product-price">&#8377;${p.price}<small>/${p.unit}</small></div>
-                                <a href="https://wa.me/${phone}?text=Hi%2C%20I%27d%20like%20to%20order%20${encodedName}" class="product-btn" target="_blank">Order <i class="fas fa-arrow-right"></i></a>
-                            </div>
-                        </div>`;
-                    grid.appendChild(card);
-
-                    const option = document.createElement('option');
-                    option.value = p.name;
-                    option.textContent = `${p.name} — ₹${p.price}/${p.unit}`;
-                    select.appendChild(option);
-                });
-
-                const otherOption = document.createElement('option');
-                otherOption.value = 'Other';
-                otherOption.textContent = 'Other';
-                select.appendChild(otherOption);
-
-                // Observe new cards for reveal animation
-                document.querySelectorAll('.product-card.reveal').forEach(el => revealObserver.observe(el));
-            } catch (e) {
-                console.error('Failed to load prices:', e);
-            }
-        }
-
-        // Preloader
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                document.getElementById('preloader').classList.add('hidden');
-            }, 800);
-        });
-
-        // Navbar scroll effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
-
-        // Mobile menu
-        const burger = document.getElementById('burger');
-        const navLinks = document.getElementById('navLinks');
-
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu on link click
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                burger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        // Scroll reveal
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-        // Load products from config
-        loadProducts();
-
-        // Animated counters
-        const counterObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('.stat-number');
-                    counters.forEach(counter => {
-                        const target = parseInt(counter.dataset.target);
-                        const suffix = counter.querySelector('span').textContent;
-                        const duration = 2000;
-                        const step = target / (duration / 16);
-                        let current = 0;
-
-                        const updateCounter = () => {
-                            current += step;
-                            if (current < target) {
-                                counter.innerHTML = Math.ceil(current) + '<span>' + suffix + '</span>';
-                                requestAnimationFrame(updateCounter);
-                            } else {
-                                counter.innerHTML = target + '<span>' + suffix + '</span>';
-                            }
-                        };
-                        updateCounter();
-                    });
-                    counterObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.stats-inner').forEach(el => counterObserver.observe(el));
-
-        // Product filtering
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productCards = document.querySelectorAll('.product-card');
-
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const category = btn.dataset.category;
-
-                productCards.forEach(card => {
-                    if (category === 'all' || card.dataset.type === category) {
-                        card.style.display = '';
-                        card.style.animation = 'heroFadeUp 0.5s forwards';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Testimonial slider
-        const testimonialCards = document.querySelectorAll('.testimonial-card');
-        const testimonialDots = document.querySelectorAll('.testimonial-dot');
-        let currentTestimonial = 0;
-        let testimonialTimer;
-
-        function showTestimonial(index) {
-            const prev = currentTestimonial;
-            currentTestimonial = index;
-
-            testimonialCards.forEach((card, i) => {
-                card.classList.remove('active', 'prev');
-                if (i === index) card.classList.add('active');
-                else if (i === prev) card.classList.add('prev');
-            });
-
-            testimonialDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-
-        function nextTestimonial() {
-            showTestimonial((currentTestimonial + 1) % testimonialCards.length);
-        }
-
-        function startAutoSlide() {
-            testimonialTimer = setInterval(nextTestimonial, 5000);
-        }
-
-        testimonialDots.forEach((dot, i) => {
-            dot.addEventListener('click', () => {
-                clearInterval(testimonialTimer);
-                showTestimonial(i);
-                startAutoSlide();
-            });
-        });
-
-        startAutoSlide();
-
-        // Contact form
-        document.getElementById('orderForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const product = document.getElementById('product').value;
-            const quantity = document.getElementById('quantity').value;
-            const phone = document.getElementById('phone').value;
-
-            const message = encodeURIComponent(
-                `Hi, I'm ${name}.\nI'd like to order ${quantity} kg/ltr of ${product}.\nMy phone: ${phone}`
-            );
-
-            window.open(`https://wa.me/919633490083?text=${message}`, '_blank');
-            this.reset();
-        });
-
-        // Scroll to top
-        const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', () => {
-            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-        });
-
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Visitor Counter
-        (function() {
-            const domain = window.location.hostname || 'nashra-flour-mill.local';
-            const countEl = document.getElementById('visitorCount');
-
-            // Record visit and get total count
-            fetch('https://visitor.6developer.com/visit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    domain: domain,
-                    page_path: window.location.pathname,
-                    page_title: document.title
-                })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data && data.totalCount !== undefined) {
-                    countEl.textContent = data.totalCount.toLocaleString();
-                }
-            })
-            .catch(() => {
-                // Fallback: try GET to at least show the count
-                fetch('https://visitor.6developer.com/visit?domain=' + encodeURIComponent(domain))
-                    .then(res => res.json())
-                    .then(data => {
-                        if (data && data.totalCount !== undefined) {
-                            countEl.textContent = data.totalCount.toLocaleString();
-                        } else {
-                            countEl.textContent = '-';
-                        }
-                    })
-                    .catch(() => {
-                        countEl.textContent = '-';
-                    });
-            });
-        })();
-    </script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
