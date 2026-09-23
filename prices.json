@@ -1,17 +1,121 @@
 {
   "products": {
-    "wheat-flour": { "name": "Wheat Flour", "price": 50, "unit": "kg", "category": "flours", "badge": "Flour", "description": "Finely milled wheat flour perfect for chapatis, rotis, and baked goods.", "image": "https://images.pexels.com/photos/5734741/pexels-photo-5734741.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "rice-flour": { "name": "Rice Flour", "price": 50, "unit": "kg", "category": "flours", "badge": "Flour", "description": "Smooth and fine rice flour ideal for idlis, dosas, and traditional sweets.", "image": "https://images.pexels.com/photos/5734741/pexels-photo-5734741.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "puttu-flour": { "name": "Puttu Flour", "price": 50, "unit": "kg", "category": "flours", "badge": "Flour", "description": "Special blend for soft, fluffy puttu — a traditional Kerala breakfast staple.", "image": "https://images.pexels.com/photos/5734741/pexels-photo-5734741.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "kashmiri-chilly": { "name": "Kashmiri Chilly Powder", "price": 460, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Vibrant red powder that adds beautiful color and mild heat to dishes.", "image": "https://images.pexels.com/photos/4199095/pexels-photo-4199095.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "spicy-chilly": { "name": "Spicy Chilly Powder", "price": 400, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Hot and aromatic chilly powder for a fiery kick in curries and dishes.", "image": "https://images.pexels.com/photos/4198417/pexels-photo-4198417.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "turmeric": { "name": "Turmeric Powder", "price": 300, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Bright golden turmeric with earthy flavor and powerful health benefits.", "image": "https://images.pexels.com/photos/6220707/pexels-photo-6220707.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "coriander": { "name": "Coriander Powder", "price": 260, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Aromatic coriander that adds a warm, nutty flavor to your dishes.", "image": "https://images.pexels.com/photos/6104651/pexels-photo-6104651.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "jeera": { "name": "Jeera Powder", "price": 220, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Freshly ground cumin with an intense, warm aroma for your recipes.", "image": "https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "pepper": { "name": "Pepper Powder", "price": 400, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Pungent black pepper powder that adds a spicy kick to any dish.", "image": "https://images.pexels.com/photos/5988689/pexels-photo-5988689.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "badi-saunf": { "name": "Badi Saunf", "price": 200, "unit": "kg", "category": "spices", "badge": "Spice", "description": "Premium quality fennel seeds with a sweet, anise-like flavor.", "image": "https://images.pexels.com/photos/5988041/pexels-photo-5988041.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "garam-masala": { "name": "Garam Masala", "price": 1200, "unit": "kg", "category": "spices", "badge": "Spice", "description": "A rich blend of ground spices to add warmth and depth to Indian cuisine.", "image": "https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "coconut-oil": { "name": "Coconut Oil", "price": 460, "unit": "ltr", "category": "oils", "badge": "Oil", "description": "Pure, cold-pressed coconut oil with a rich aroma and health benefits.", "image": "https://images.pexels.com/photos/7953254/pexels-photo-7953254.jpeg?auto=compress&cs=tinysrgb&w=800" },
-    "coconut-paste": { "name": "Coconut Paste", "price": 400, "unit": "kg", "category": "oils", "badge": "Paste", "description": "Smooth, creamy coconut paste perfect for curries and traditional dishes.", "image": "https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg?auto=compress&cs=tinysrgb&w=800" }
+    "wheat-flour": {
+      "name": "Wheat Flour",
+      "price": 50,
+      "unit": "kg",
+      "category": "flours",
+      "badge": "Flour",
+      "description": "Finely milled wheat flour perfect for chapatis, rotis, and baked goods.",
+      "image": "https://images.pexels.com/photos/6287223/pexels-photo-6287223.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "rice-flour": {
+      "name": "Rice Flour",
+      "price": 50,
+      "unit": "kg",
+      "category": "flours",
+      "badge": "Flour",
+      "description": "Smooth and fine rice flour ideal for idlis, dosas, and traditional sweets.",
+      "image": "https://images.pexels.com/photos/5734741/pexels-photo-5734741.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "puttu-flour": {
+      "name": "Puttu Flour",
+      "price": 50,
+      "unit": "kg",
+      "category": "flours",
+      "badge": "Flour",
+      "description": "Special blend for soft, fluffy puttu — a traditional Kerala breakfast staple.",
+      "image": "https://images.pexels.com/photos/17104944/pexels-photo-17104944.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "kashmiri-chilly": {
+      "name": "Kashmiri Chilly Powder",
+      "price": 460,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Vibrant red powder that adds beautiful color and mild heat to dishes.",
+      "image": "https://images.pexels.com/photos/4199095/pexels-photo-4199095.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "spicy-chilly": {
+      "name": "Spicy Chilly Powder",
+      "price": 400,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Hot and aromatic chilly powder for a fiery kick in curries and dishes.",
+      "image": "https://images.pexels.com/photos/4198417/pexels-photo-4198417.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "turmeric": {
+      "name": "Turmeric Powder",
+      "price": 300,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Bright golden turmeric with earthy flavor and powerful health benefits.",
+      "image": "https://images.pexels.com/photos/6220707/pexels-photo-6220707.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "coriander": {
+      "name": "Coriander Powder",
+      "price": 260,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Aromatic coriander that adds a warm, nutty flavor to your dishes.",
+      "image": "https://images.pexels.com/photos/10487771/pexels-photo-10487771.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "jeera": {
+      "name": "Jeera Powder",
+      "price": 220,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Freshly ground cumin with an intense, warm aroma for your recipes.",
+      "image": "https://images.pexels.com/photos/35809378/pexels-photo-35809378.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "pepper": {
+      "name": "Pepper Powder",
+      "price": 400,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Pungent black pepper powder that adds a spicy kick to any dish.",
+      "image": "https://images.pexels.com/photos/5988689/pexels-photo-5988689.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "badi-saunf": {
+      "name": "Badi Saunf",
+      "price": 200,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "Premium quality fennel seeds with a sweet, anise-like flavor.",
+      "image": "https://images.pexels.com/photos/5988041/pexels-photo-5988041.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "garam-masala": {
+      "name": "Garam Masala",
+      "price": 1200,
+      "unit": "kg",
+      "category": "spices",
+      "badge": "Spice",
+      "description": "A rich blend of ground spices to add warmth and depth to Indian cuisine.",
+      "image": "https://images.pexels.com/photos/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "coconut-oil": {
+      "name": "Coconut Oil",
+      "price": 460,
+      "unit": "ltr",
+      "category": "oils",
+      "badge": "Oil",
+      "description": "Pure, cold-pressed coconut oil with a rich aroma and health benefits.",
+      "image": "https://images.pexels.com/photos/725998/pexels-photo-725998.jpeg?auto=compress&cs=tinysrgb&w=800"
+    },
+    "coconut-paste": {
+      "name": "Coconut Paste",
+      "price": 400,
+      "unit": "kg",
+      "category": "oils",
+      "badge": "Paste",
+      "description": "Smooth, creamy coconut paste perfect for curries and traditional dishes.",
+      "image": "https://images.pexels.com/photos/36280935/pexels-photo-36280935.jpeg?auto=compress&cs=tinysrgb&w=800"
+    }
   }
 }
